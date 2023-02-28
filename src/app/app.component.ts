@@ -26,7 +26,6 @@ export class AppComponent implements OnInit{
       measurementId: "G-E9Y09X9DZE"
 };
 
-
   ngOnInit(): void {
     const app = initializeApp(this.firebaseConfig);
     const db = getDatabase();
