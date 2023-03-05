@@ -1,16 +1,18 @@
-<h1>Testing Real-time feature of Firebase</h1>
-<h2>Dummy form</h2>
-<app-chat-gpt></app-chat-gpt>
-<form (ngSubmit)="submit()" #testForm="ngForm">
-  <div class="form-group">
-    <input type="number" name="userId" ngModel #userId="ngModel"><br>
-    <input type="text" name="name" ngModel #name="ngModel"><br>
-    <input type="email" name="mail" ngModel #mail="ngModel"><br>
-    <input type="text" name="dp" ngModel #dp="ngModel"><br>
-  </div><br>
-  <button type="submit">Submit</button>
-</form>
-<h1>Feed</h1>
-<div *ngFor="let item of liveFeed | keyvalue">
-  <span>{{item.key}} {{item.value['email']}}</span>
+<div>
+  <h1>Testing Real-time feature of Firebase</h1>
+  <h2>Dummy form</h2>
+  <app-chat-gpt></app-chat-gpt>
+  <form (ngSubmit)="submit()" #testForm="ngForm">
+    <div class="form-group">
+      <input type="number" name="userId" ngModel #userId="ngModel"><br>
+      <input type="text" name="name" ngModel #name="ngModel"><br>
+      <input type="email" name="mail" ngModel #mail="ngModel"><br>
+      <input type="text" name="dp" ngModel #dp="ngModel"><br>
+    </div><br>
+    <button type="submit">Submit</button>
+  </form>
+  <h1>Feed</h1>
+  <div *ngFor="let item of liveFeed | keyvalue">
+    <span>{{item.key}} {{item.value['email']}}</span>
+  </div>
 </div>
