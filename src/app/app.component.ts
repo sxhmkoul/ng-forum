@@ -4,6 +4,7 @@ import { FormsModule, NgForm } from '@angular/forms';
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, set, onValue, DatabaseReference } from "firebase/database";
 import { getAnalytics } from "firebase/analytics";
+import { AppConfigService } from './services/app-config.service';
 
 @Component({
   selector: 'app-root',
@@ -15,16 +16,18 @@ export class AppComponent implements OnInit{
   title = 'forum';
   liveFeed = {};
   @ViewChild('testForm') testForm !: NgForm
-  firebaseConfig = {
-      apiKey: "AIzaSyD1LQ79aG3RhbQaVfqZGG1lN_KQMMc437o",
+  firebaseConfig: {} = {
+      apiKey: this.AppConfig.api_keys.firebase,
       authDomain: "ng-forum-2f491.firebaseapp.com",
-      databaseURL: "https://ng-forum-2f491-default-rtdb.firebaseio.com",
+      databaseURL: this.AppConfig.api_keys.firebase.databaseUrl,
       projectId: "ng-forum-2f491",
       storageBucket: "ng-forum-2f491.appspot.com",
-      messagingSenderId: "577554456329",
-      appId: "1:577554456329:web:ac9a986d58f9675b2dfdd8",
-      measurementId: "G-E9Y09X9DZE"
+      messagingSenderId: this.AppConfig.api_keys.firebase.messagingSenderId,
+      appId: this.AppConfig.api_keys.firebase.appId,
+      measurementId: this.AppConfig.api_keys.firebase.measurementId
 };
+
+  constructor (private AppConfig: AppConfigService){}
 
   ngOnInit(): void {
     const app = initializeApp(this.firebaseConfig);

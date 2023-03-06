@@ -7,11 +7,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ChatGptComponent } from './components/chat-gpt/chat-gpt.component';
-
 @NgModule({
   declarations: [
     AppComponent,
-    ChatGptComponent
+    ChatGptComponent,
   ],
   imports: [
     BrowserModule,
