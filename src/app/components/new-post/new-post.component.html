@@ -1,0 +1,18 @@
+<div>
+    <h1>Testing Real-time feature of Firebase</h1>
+    <h2>Dummy form</h2>
+    <form (ngSubmit)="submit()" #testForm="ngForm">
+      <div class="form-group">
+        <input type="number" name="userId" placeholder="Enter your id" ngModel #userId="ngModel"><br>
+        <input type="text" name="name" placeholder="Name" ngModel #name="ngModel"><br>
+        <input type="email" name="mail" placeholder="Email" ngModel #mail="ngModel"><br>
+        <input type="text" name="query" placeholder="Enter your query" ngModel #query="ngModel"><br>
+      </div><br>
+      <button type="submit">Submit</button>
+    </form>
+    <h1>Feed</h1>
+    <div *ngFor="let item of liveFeed | keyvalue">
+      <span>{{item.key}} {{item.value['email']}}</span>
+    </div>
+  </div>
+  

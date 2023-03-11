@@ -1,0 +1,15 @@
+.content-body {
+    app-menu-wrapper, app-todo-wrapper, app-feed-wrapper{
+        border: 2px solid gray;
+        background-color: rgb(236, 235, 235);
+    }
+
+    // app-menu-wrapper {
+    //     background-color: rgb(236, 235, 235);
+    // }
+}
+
+
+.height-full {
+    height: 100vh;
+}
