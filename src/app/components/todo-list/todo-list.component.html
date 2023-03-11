@@ -1,1 +1,16 @@
-<p>todo-list works!</p>
+<div class="text-center">
+    <h3>Note that down.</h3>
+
+    <div>
+        <input type="text" placeholder="Something in mind?" #inputList>
+        <input (click)='onAddToList()' type="button" class="btn btn-secondary" value="Add to list" />
+
+        <div>
+            <span (click)="onRemoveFromList($event)" *ngFor="let list of todoListArray">{{list}}<br></span>
+        </div>
+
+        <div>
+            <span *ngFor="let list of doneListArray">{{list}}<br></span>
+        </div>
+    </div>
+</div>
