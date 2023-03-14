@@ -1,9 +1,9 @@
 <div class="text-center">
     <h3>Note that down.</h3>
 
-    <div>
-        <input type="text" placeholder="Something in mind?" #inputList>
-        <input (click)='onAddToList()' type="button" class="btn btn-secondary" value="Add to list" />
+    <div class="todo__body">
+        <input class="todo-input" type="text" placeholder="Something in mind?" #inputList>
+        <input class="todo-add btn btn-secondary" (click)='onAddToList()' type="button" value="Add to list" />
 
         <div>
             <span (click)="onRemoveFromList($event)" *ngFor="let list of todoListArray">{{list}}<br></span>

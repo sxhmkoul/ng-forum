@@ -1,13 +1,16 @@
 .sub-menu{
     
-    .sub-menu__list{
-        border-radius: 1rem;
-        margin: 1rem !important;
-        width: 90%;
+    
+}
 
-        &.active{
-            background-color: white;
-            padding: 1rem;
-        }
-    }
+.sub-menu__list{
+    border-radius: 1rem;
+    margin: 1rem !important;
+    width: 90%;
+
+}
+
+.active{
+    background-color: white;
+    padding: 1rem;
 }

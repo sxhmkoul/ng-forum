@@ -2,3 +2,21 @@
     text-decoration: line-through;
     color: gray;
 }
+
+.todo__body {
+
+    .todo-input{
+        height: 36px;
+        border-radius: 8px;
+        outline: none;
+        border: none;
+        border-bottom: 1px solid black;
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+        background-color: transparent;
+    }
+
+    .todo-add {
+        margin-left: 1rem;
+    }
+}

@@ -11,9 +11,15 @@
             <div>
                 Resources
             </div>
+            <div (click)="activateTodo()">
+                Todo List
+            </div>
             <div>
                 Login/Signup
             </div>
         </div>
     </div>
+</div>
+<div class="floating-todo" *ngIf="todoSwitchNav">
+    <app-todo-list></app-todo-list>
 </div>

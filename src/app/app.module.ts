@@ -17,6 +17,8 @@ import { MenuWrapperComponent } from './components/menu-wrapper/menu-wrapper.com
 import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.component';
 import { BodyWrapperComponent } from './components/body-wrapper/body-wrapper.component';
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
+import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
+import { MyQuestionsComponent } from './my-questions/my-questions.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -31,6 +33,8 @@ import { FeedCardComponent } from './components/feed-card/feed-card.component';
     MenuVerticalComponent,
     BodyWrapperComponent,
     FeedCardComponent,
+    FourOhFourComponent,
+    MyQuestionsComponent,
   ],
   imports: [
     BrowserModule,
