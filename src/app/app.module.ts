@@ -19,6 +19,8 @@ import { BodyWrapperComponent } from './components/body-wrapper/body-wrapper.com
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
 import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { MyQuestionsComponent } from './my-questions/my-questions.component';
+import { ButtonComponent } from './components/button/button.component';
+import { LikedFeedComponent } from './components/liked-feed/liked-feed.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,6 +37,8 @@ import { MyQuestionsComponent } from './my-questions/my-questions.component';
     FeedCardComponent,
     FourOhFourComponent,
     MyQuestionsComponent,
+    ButtonComponent,
+    LikedFeedComponent,
   ],
   imports: [
     BrowserModule,

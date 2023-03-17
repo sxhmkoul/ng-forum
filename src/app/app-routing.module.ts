@@ -5,10 +5,12 @@ import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
 import { FeedWrapperComponent } from './components/feed-wrapper/feed-wrapper.component';
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
 import { MyQuestionsComponent } from './my-questions/my-questions.component';
+import { LikedFeedComponent } from './components/liked-feed/liked-feed.component';
 
 const routes: Routes = [
   {path: 'feed', component: FeedComponent},
-  {path: 'my-questions', component: MyQuestionsComponent},
+  {path: 'my-posts', component: MyQuestionsComponent},
+  {path: 'liked', component: LikedFeedComponent},
   {path: '**', component: FourOhFourComponent}
 ];
 

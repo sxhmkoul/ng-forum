@@ -1,1 +1,1 @@
-<app-feed-card *ngFor="let post of dummyData" [card-data]="post"></app-feed-card>
+<app-feed-card *ngFor="let post of (filter === 'self' ? filteredData : dummyData)" [card-data]="post"></app-feed-card>
