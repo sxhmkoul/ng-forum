@@ -1,0 +1,16 @@
+<app-hr-subtitle subtitle="Comments" [count]="comments.length"></app-hr-subtitle>
+<div class="comment">
+    <div *ngFor="let comment of comments; let i = index" >
+            <div class="comment__card">
+                <div class="comment__dp">
+                    <!-- <img src="" alt=""> -->
+                    <span class="comment__dp--initials">{{(comment.user_name[0]).toUpperCase()}}</span>
+                </div>
+                <div class="comment__core">
+                    <h6>{{comment.user_name}}</h6>
+                    <span>{{comment.comment}}</span> 
+                </div>
+            </div>
+        <hr *ngIf="i != comments.length-1">
+    </div>
+</div>

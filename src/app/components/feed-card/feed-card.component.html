@@ -1,4 +1,4 @@
-<div class="feed__card bg-white m-3">
+<div class="feed__card bg-white m-3 shadow-sm">
     <div class="d-flex mini-profile justify-content-between">
         <div class="d-flex">
             <div class="dp"><img src="{{cardData.dpUrl}}" alt=""></div>
@@ -9,9 +9,9 @@
                 </div>
         </div>
         <div class="like" (click)="likeSwitch()">
-            <i [ngClass]="{'bi bi-suit-heart-fill text-danger': heartLikedFlag, 'bi bi-suit-heart': !heartLikedFlag}"></i>
+            <i [ngClass]="heartLikedFlag || cardData.liked ? 'bi bi-suit-heart-fill text-danger':'bi bi-suit-heart'"></i>
         </div>
     </div>
-    <h5>{{cardData.question}}</h5>
+    <a class="text-decoration-none" [routerLink]="'/feed/detail/'+cardData.id"><h5>{{cardData.question}}</h5></a>
     <p>{{cardData.desc}}</p>
 </div>

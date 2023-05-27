@@ -3,6 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -17,10 +19,32 @@ import { MenuWrapperComponent } from './components/menu-wrapper/menu-wrapper.com
 import { MenuVerticalComponent } from './components/menu-vertical/menu-vertical.component';
 import { BodyWrapperComponent } from './components/body-wrapper/body-wrapper.component';
 import { FeedCardComponent } from './components/feed-card/feed-card.component';
-import { FourOhFourComponent } from './four-oh-four/four-oh-four.component';
-import { MyQuestionsComponent } from './my-questions/my-questions.component';
+import { FourOhFourComponent } from './components/four-oh-four/four-oh-four.component';
+import { MyQuestionsComponent } from './components/my-questions/my-questions.component';
 import { ButtonComponent } from './components/button/button.component';
 import { LikedFeedComponent } from './components/liked-feed/liked-feed.component';
+// import { LogSignWrapperComponent } from './components/log-sign-wrapper/log-sign-wrapper.component';
+import { LoginSignupWrapperComponent } from './components/login-signup-wrapper/login-signup-wrapper.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { TagsComponent } from './components/tags/tags.component';
+import { AnimatedBackgroundWrapperComponent } from './components/animated-background-wrapper/animated-background-wrapper.component';
+import { InputComponent } from './components/input/input.component';
+import { MyFeedComponent } from './components/my-feed/my-feed.component';
+import { ChildModalComponent } from './components/modals/child-modal/child-modal.component';
+import { FeedDetailComponent } from './components/feed-detail/feed-detail.component';
+import { SearchPostComponent } from './components/search-post/search-post.component';
+import { SearchPostDirective } from './directives/search-post.directive';
+import { NavSwitchComponent } from './components/nav-switch/nav-switch.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
+import { CommentWrapperComponent } from './components/comment-wrapper/comment-wrapper.component';
+import { AnswerWrapperComponent } from './components/answer-wrapper/answer-wrapper.component';
+import { HrSubtitleComponent } from './components/hr-subtitle/hr-subtitle.component';
+import { LoaderComponent } from './components/loader/loader.component';
+
+export function playerFactory() {
+  return player;
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,12 +63,31 @@ import { LikedFeedComponent } from './components/liked-feed/liked-feed.component
     MyQuestionsComponent,
     ButtonComponent,
     LikedFeedComponent,
+    // LogSignWrapperComponent,
+    LoginSignupWrapperComponent,
+    LoginComponent,
+    SignupComponent,
+    TagsComponent,
+    AnimatedBackgroundWrapperComponent,
+    InputComponent,
+    MyFeedComponent,
+    ChildModalComponent,
+    FeedDetailComponent,
+    SearchPostComponent,
+    SearchPostDirective,
+    NavSwitchComponent,
+    BlogsComponent,
+    CommentWrapperComponent,
+    AnswerWrapperComponent,
+    HrSubtitleComponent,
+    LoaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    LottieModule.forRoot({ player: playerFactory }),
   ],
   providers: [],
   bootstrap: [AppComponent]

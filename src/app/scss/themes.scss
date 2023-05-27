@@ -1,0 +1,50 @@
+@import "./bem-mixins.scss";
+@import "./variables.scss";
+@import "./functions.scss";
+
+@include block('hr'){
+    @include element('title'){
+        width: 40%;
+        display: inline;
+    }
+}
+
+
+@include block('feed'){
+    @include element('subtitle'){
+        font-size: 1rem;
+        font-weight: 500;
+    }
+}
+
+
+@include block('comment'){
+    background-color: rgb(243, 243, 243);
+    border-radius: 1rem;
+    margin: 2rem 0 0 0;
+    padding: 1rem 1rem 0 1rem;
+    
+    @include element('core'){
+        display: flex;
+        flex-direction: column;
+    }
+
+    @include element('card'){
+        display: flex;
+        flex-direction: row;
+        padding: 1rem 0;
+    }
+
+    @include element('dp'){
+        padding: 0;
+        
+        @include modifier('initials'){
+            border-radius: 50%;
+            padding: 0.3rem 0.6rem;
+            margin-right: 1rem;
+            color: white;
+            background-color: colorShuffle();
+        }
+    }
+}
+

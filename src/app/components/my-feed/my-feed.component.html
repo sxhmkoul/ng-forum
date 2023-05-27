@@ -1,0 +1,2 @@
+<app-feed *ngIf="dataLoaded" filter="my-feed" [filteredFeed]="data"></app-feed>
+<ng-lottie *ngIf="!dataLoaded" class="loading-donut" [options]="animationOptions"></ng-lottie>

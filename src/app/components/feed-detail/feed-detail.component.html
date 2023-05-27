@@ -1,0 +1,9 @@
+<div class="feed-detail__container">
+  <div class="feed-detail__core">
+    <h4>{{currentPost[0].question}}</h4>
+    <p>{{currentPost[0].desc}}</p>
+  </div> 
+  <div *ngIf="currentPost[0].category === 'question'; then answers else comments"></div>
+  <ng-template #answers><app-answer-wrapper></app-answer-wrapper></ng-template>
+  <ng-template #comments><app-comment-wrapper [comments]="currentPost[0].comments"></app-comment-wrapper></ng-template>
+</div>

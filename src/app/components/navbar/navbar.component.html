@@ -1,12 +1,12 @@
 <div class="container-fluid m-0 border p-3">
     <div class="row d-flex justify-content-between w-100">
-        <div class="logo col-md-6">
-            Logo
+        <div style="font-size: 2rem;" class="logo col-md-6">
+            <b>{{'Koul.' | uppercase}}</b>
         </div>
         
         <div class="sub-nav d-flex flex-row col-md-6 justify-content-evenly">
             <div class="search-bar">
-                <input type="text" placeholder="search">
+                <app-search-post></app-search-post>
             </div>
             <div>
                 Resources
@@ -14,9 +14,9 @@
             <div (click)="activateTodo()">
                 Todo List
             </div>
-            <div>
+            <a routerLink="/login"><div>
                 Login/Signup
-            </div>
+            </div></a>
         </div>
     </div>
 </div>

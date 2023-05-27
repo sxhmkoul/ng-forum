@@ -1,1 +1,7 @@
-<app-feed-card *ngFor="let post of (filter === 'self' ? filteredData : dummyData)" [card-data]="post"></app-feed-card>
+<div>
+    <app-nav-switch (detechNavSwitchFlip)="navSwitchCallback($event)"></app-nav-switch>
+<div *ngIf="!!localFilteredData.length; then content else noContent">
+</div>
+<ng-template #content><app-feed-card *ngFor="let post of localFilteredData" [card-data]="post"></app-feed-card></ng-template>
+<ng-template #noContent><app-child-modal></app-child-modal></ng-template>
+</div>
