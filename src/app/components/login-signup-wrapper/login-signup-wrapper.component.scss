@@ -1,0 +1,26 @@
+// app-login {
+//     height: 100 vh;
+// }
+
+.login-signup-wrapper {
+    background-color: #3B3D54;
+    width: 100%;
+    height: 100vh;
+    display: block;
+    position: fixed;
+}
+
+app-login {
+    z-index: 9;   
+    position: absolute;
+    background-color: white;
+    top: 30%;
+    right: 40%;
+}
+
+app-animated-background-wrapper {
+    z-index: 9999;
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+}

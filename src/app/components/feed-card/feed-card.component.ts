@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { feedModal } from '../feed/feed.modal';
+import { FeedService } from 'src/app/services/feed.service';
 
 @Component({
   selector: 'app-feed-card',
@@ -7,16 +8,23 @@ import { feedModal } from '../feed/feed.modal';
   styleUrls: ['./feed-card.component.scss']
 })
 export class FeedCardComponent implements OnInit {
+  constructor(public feedData: FeedService){}
   @Input('card-data') cardData !: feedModal;
   heartSwitch: string = 'bi-suit-heart';
   heartLikedFlag: boolean = false;
 
   ngOnInit(): void {
-      console.log(this.cardData);
+      // if()
   }
 
   likeSwitch = () => {
     this.heartLikedFlag = !this.heartLikedFlag;
+    this.cardData.liked = true;
+    this.feedData.dummyData.filter((current: feedModal)=>{
+      if(current.id == this.cardData.id){
+        current.liked = true;
+      }
+    })
     // this.heartSwitch = this.heartLikedFlag ? 'bi-suit-heart-fill' : 'bi-suit-heart'
   }
 }

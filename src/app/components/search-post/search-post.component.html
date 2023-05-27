@@ -1,0 +1,8 @@
+<div style="position: relative;">
+    <app-input incomingId="searchBar" (callback)="expandSearch($event)" type="text" [showLabel]="false" name="Search any post"></app-input>
+    <div *ngIf="searchParam" style="position: absolute; background-color: white; width: 100%;">
+        <ul class="m-0 p-0">
+            <li *ngFor="let feed of searchResult" class="border border-dark border-top-0" style="list-style: none; border-top: none;">{{feed}}</li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,9 @@
+@function colorShuffle() {
+    
+    $r : floor(random(256));
+    $g : floor(random(256));
+    $b : floor(random(256));
+    $rgb : rgb($r, $g, $b);
+    @return $rgb;
+
+}

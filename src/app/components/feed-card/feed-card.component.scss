@@ -1,4 +1,8 @@
+@import "../../scss/themes.scss";
+@import "../../scss/animations.scss";
+
 .feed__card {
+    transition: all .2s ease-in-out; 
     width: 95%;
     padding: 1rem;
     border-radius: 1rem;
@@ -8,7 +12,9 @@
         .dp {
             img {
                 width: 60px;
+                height: 60px;
                 border-radius: 50px;
+                object-fit: cover;
             }
         }
 
@@ -23,12 +29,7 @@
     }
 }
 
-@keyframes shake {
-
-    0% { transform: rotate(0deg); }
-  25% { transform: rotate(20deg); }
-  50% { transform: rotate(0deg); }
-  75% { transform: rotate(-20deg); }
-  100% { transform: rotate(0deg); }
-    
+.feed__card:hover{
+    box-shadow: $box-shadow !important;
+    // transform: scale(1.007); 
 }

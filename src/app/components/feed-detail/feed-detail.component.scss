@@ -1,0 +1,12 @@
+@import "../../../styles.scss";
+
+@include block('feed-detail'){
+    @include element('container'){
+        background-color: white;
+        height: 98vh;
+        padding: 2rem;
+    }
+    @include element('core'){
+        // padding: 2rem;
+    }
+}
