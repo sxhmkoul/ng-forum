@@ -14,10 +14,11 @@ import { LoginSignupWrapperComponent } from './components/login-signup-wrapper/l
 import { MyFeedComponent } from './components/my-feed/my-feed.component';
 import { FeedDetailComponent } from './components/feed-detail/feed-detail.component';
 import { BlogsComponent } from './components/blogs/blogs.component';
+import { AuthGuard } from './guards/auth.guard';
 
 const routes: Routes = [
   {path: '', redirectTo: '/feed', pathMatch: 'full'},
-  {path: 'feed', component: BodyWrapperComponent, children: [
+  {path: 'feed', component: BodyWrapperComponent, canActivate: [AuthGuard], children: [
     {path: '', component: MyFeedComponent},
     {path: 'all', component: MyFeedComponent},
     {path: 'blogs', component: BlogsComponent},
@@ -25,7 +26,7 @@ const routes: Routes = [
     {path: 'tags', component: TagsComponent},
     {path: '**',  redirectTo: '/feed', pathMatch: 'full'},
   ]},
-  {path: 'my-posts', component: BodyWrapperComponent, pathMatch: 'full', children: [
+  {path: 'my-posts', component: BodyWrapperComponent, pathMatch: 'full', canActivate: [AuthGuard], children: [
     {path: '', component: MyQuestionsComponent},
     {path: 'blogs', component: BlogsComponent},
     {path: '**',  redirectTo: '/my-posts', pathMatch: 'full'},
@@ -36,7 +37,9 @@ const routes: Routes = [
     {path: '**',  redirectTo: '/liked', pathMatch: 'full'},
   ]},
   {path: 'login', component: LoginSignupWrapperComponent},
-  {path: 'signup', component: SignupComponent},
+  {path: 'signup', component: LoginSignupWrapperComponent, children: [
+    // {path: ':section', component: LoginSignupWrapperComponent}
+  ]},
   {path: '**', component: FourOhFourComponent}
 ];
 

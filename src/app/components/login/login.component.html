@@ -2,8 +2,42 @@
 <div>
     <h2>Login</h2>
     <div>
-        <app-input type="text" name="name"></app-input>
-        <app-input type="password" name="name"></app-input>
-        <app-button placeholder="Login"></app-button>
+        <form
+        class="d-flex flex-column gap-3 p-5"
+        #authForm="ngForm"
+        (ngSubmit)="loginSignupHandler(authForm)">
+        
+        <div class="form-group">
+          <input
+            name="email"
+            type="email"
+            class="form-control"
+            placeholder="Enter your email"
+            ngModel
+            required
+          />
+        </div>
+        <div class="form-group">
+          <input
+            name="password"
+            type="password"
+            class="form-control"
+            ngModel
+            required
+            minlength="6"
+            placeholder="Enter your password"
+          />
+        </div>
+        <div class="w-100 d-flex justify-content-center gap-3">
+          <button
+            type="submit"
+            [disabled]="!this.authForm.valid"
+            class="btn btn-primary"> Log in
+          </button>
+          <button type="button" routerLink="/signup" class="btn btn-primary">
+            Sign up Instead?
+          </button>
+        </div>
+      </form>
     </div>
 </div>

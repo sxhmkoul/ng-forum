@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, NgForm } from '@angular/forms';
-import { HttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
@@ -41,6 +41,9 @@ import { CommentWrapperComponent } from './components/comment-wrapper/comment-wr
 import { AnswerWrapperComponent } from './components/answer-wrapper/answer-wrapper.component';
 import { HrSubtitleComponent } from './components/hr-subtitle/hr-subtitle.component';
 import { LoaderComponent } from './components/loader/loader.component';
+import { LoginSignupComponent } from './components/login-signup/login-signup.component';
+import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export function playerFactory() {
   return player;
@@ -81,6 +84,7 @@ export function playerFactory() {
     AnswerWrapperComponent,
     HrSubtitleComponent,
     LoaderComponent,
+    LoginSignupComponent,
   ],
   imports: [
     BrowserModule,
@@ -88,8 +92,11 @@ export function playerFactory() {
     FormsModule,
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
+    BrowserAnimationsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

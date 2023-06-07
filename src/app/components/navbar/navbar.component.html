@@ -14,9 +14,12 @@
             <div (click)="activateTodo()">
                 Todo List
             </div>
-            <a routerLink="/login"><div>
+            <!-- <a *ngIf="SharedService.pageView !== 'login-signup' && loginStatus" routerLink="/login"><div>
                 Login/Signup
-            </div></a>
+            </div></a> -->
+            <div *ngIf="loginStatus" (click)="logout()">
+                Logout
+            </div>
         </div>
     </div>
 </div>

@@ -1,1 +1,2 @@
-<app-feed [filteredFeed]="myPosts"></app-feed>
+<app-feed *ngIf="isLoaded" [filteredFeed]="filtered"></app-feed>
+<ng-lottie *ngIf="!isLoaded" class="loading-donut" [options]="animationOptions"></ng-lottie>

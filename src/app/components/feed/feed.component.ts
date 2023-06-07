@@ -16,6 +16,7 @@ export class FeedComponent implements OnInit{
   localFilteredData : feedModal[] = [];
 
   ngOnInit(): void {
+    console.log('incoming filtered feed:', this.filteredFeedData);
       this.filterFeed();
       this.localFilteredData = [...this.filteredFeedData];
   }
