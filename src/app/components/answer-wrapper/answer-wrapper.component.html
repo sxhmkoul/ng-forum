@@ -1,5 +1,5 @@
-<app-hr-subtitle subtitle="Answers" [count]="comments.length"></app-hr-subtitle>
-<div class="comment">
+<app-hr-subtitle subtitle="Answers" [count]="comments && comments.length || 0"></app-hr-subtitle>
+<div *ngIf="!!comments" class="comment">
     <div *ngFor="let comment of comments; let i = index" >
             <div class="comment__card">
                 <div class="comment__dp">
@@ -14,3 +14,4 @@
         <hr *ngIf="i != comments.length-1">
     </div>
 </div>
+<h2 class="text-center" *ngIf="!comments">No comments. Make one?</h2>

@@ -3,6 +3,7 @@ import { FeedService } from '../../services/feed.service';
 import { feedModal } from '../feed/feed.modal';
 import { AnimationOptions } from 'ngx-lottie';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-my-questions',
@@ -12,7 +13,7 @@ import { AuthService } from 'src/app/services/auth.service';
 export class MyQuestionsComponent implements OnInit {
 // AuthService: any;
   token: any;
-constructor(public FeedService: FeedService, private AuthService: AuthService){}
+constructor(public FeedService: FeedService, private AuthService: AuthService, private UserService: UserService){}
 myPosts : feedModal[] = [];
 isLoaded: boolean = false;
 filtered: feedModal[] = [];
@@ -26,11 +27,12 @@ ngOnInit(): void {
     this.token = res?.getToken;
   })
   this.FeedService.fetchFeed(this.token).subscribe(res=>{
-    this.FeedService.dummyData = res;
-    this.FeedService.filterFeed(res).then((res)=>{
+    this.FeedService.dummyData = res.reverse();
+    this.UserService.filterFeed(res.reverse()).then((res)=>{
       console.log('filtered',res);
       this.filtered = res;
       this.isLoaded = true;
+      console.log('this.filtered',this.filtered);
       // this.FeedService.isLoaded = true;
     })
   });

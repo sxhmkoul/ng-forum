@@ -26,11 +26,3 @@ export default interface AuthModel {
     }
 
 }
-
-// export default interface SignUpResponse {
-//     idToken : string,
-//     email : string,
-//     refreshToken: string,
-//     expiresIn: string,
-//     localId: string,
-// }

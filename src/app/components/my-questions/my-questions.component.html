@@ -1,2 +1,3 @@
 <app-feed *ngIf="isLoaded" [filteredFeed]="filtered"></app-feed>
-<ng-lottie *ngIf="!isLoaded" class="loading-donut" [options]="animationOptions"></ng-lottie>
+<app-animator *ngIf="!isLoaded" class="loading-donut" useLottie=false [animation]="'boxes'"></app-animator>
+

@@ -21,7 +21,7 @@ export class FeedCardComponent implements OnInit {
     this.heartLikedFlag = !this.heartLikedFlag;
     this.cardData.liked = true;
     this.feedData.dummyData.filter((current: feedModal)=>{
-      if(current.id == this.cardData.id){
+      if(current.postId == this.cardData.postId){
         current.liked = true;
       }
     })

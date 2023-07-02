@@ -12,6 +12,6 @@
             <i [ngClass]="heartLikedFlag || cardData.liked ? 'bi bi-suit-heart-fill text-danger':'bi bi-suit-heart'"></i>
         </div>
     </div>
-    <a class="text-decoration-none" [routerLink]="'/feed/detail/'+cardData.id"><h5>{{cardData.question}}</h5></a>
+    <a class="text-decoration-none" [routerLink]="'/feed/detail/'+cardData.postId"><h5>{{cardData.question}}</h5></a>
     <p>{{cardData.desc}}</p>
 </div>

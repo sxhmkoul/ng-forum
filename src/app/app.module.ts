@@ -44,6 +44,13 @@ import { LoaderComponent } from './components/loader/loader.component';
 import { LoginSignupComponent } from './components/login-signup/login-signup.component';
 import { AuthInterceptorInterceptor } from './interceptors/auth-interceptor.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { CommentComponent } from './components/comment/comment.component';
+import { AnimatorComponent } from './components/animator/animator.component';
+
+// material
+import { MatDialogModule } from '@angular/material/dialog';
+
+
 
 export function playerFactory() {
   return player;
@@ -85,6 +92,8 @@ export function playerFactory() {
     HrSubtitleComponent,
     LoaderComponent,
     LoginSignupComponent,
+    CommentComponent,
+    AnimatorComponent,
   ],
   imports: [
     BrowserModule,
@@ -93,6 +102,7 @@ export function playerFactory() {
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
     BrowserAnimationsModule,
+    MatDialogModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }

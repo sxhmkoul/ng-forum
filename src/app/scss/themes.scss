@@ -9,6 +9,16 @@
     }
 }
 
+@include block('modal'){
+    @include element('bg'){
+        background-color: $dark;
+    }
+
+    @include element('field'){
+        background-color: $dark-field;
+    }
+}
+
 
 @include block('feed'){
     @include element('subtitle'){
@@ -50,3 +60,15 @@
     }
 }
 
+@include block('w-30'){
+    width: 30% !important;
+}
+@include block('w-40'){
+    width: 40% !important;
+}
+@include block('w-60'){
+    width: 60% !important;
+}
+@include block('w-70'){
+    width: 70% !important;
+}

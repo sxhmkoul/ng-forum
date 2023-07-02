@@ -1,0 +1,57 @@
+@import "../../scss/themes.scss";
+
+table {
+    border-collapse: separate;
+    border-spacing: 0 1em;
+    padding: 10px;
+}
+
+// table:hover {
+//     transform: scale(1.03);
+// }
+
+textarea,
+input,
+select {
+    border: none;
+  box-shadow: none;
+  outline: 0 none;
+  color: white;
+  transition: all .2s ease;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+    border: none;
+  box-shadow: none;
+  outline: 0 none;
+  color: white;
+  background-color: $dark-field-hover;
+}
+
+textarea:hover,
+input:hover,
+select:hover {
+    border: none;
+  box-shadow: none;
+  outline: 0 none;
+  background-color: $dark-field-hover;
+}
+
+
+// input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+//     color: silver;
+//     opacity: 1; /* Firefox */
+//   }
+  
+//   input:-ms-input-placeholder { /* Internet Explorer 10-11 */
+//     color: silver;
+//   }
+  
+//   input::-ms-input-placeholder { /* Microsoft Edge */
+//     color: silver;
+//   }
+
+
+

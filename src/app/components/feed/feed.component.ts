@@ -13,19 +13,23 @@ export class FeedComponent implements OnInit{
   @Input('filteredFeed') filteredFeed !: feedModal[];
   filteredFeedData : feedModal[] = [];
   filteredBlogData : feedModal[] = [];
+  filteredStoryData : feedModal[] = [];
   localFilteredData : feedModal[] = [];
 
   ngOnInit(): void {
+    console.log('filteredFeed',this.filteredFeed);
     console.log('incoming filtered feed:', this.filteredFeedData);
       this.filterFeed();
-      this.localFilteredData = [...this.filteredFeedData];
+      this.localFilteredData = [...this.filteredFeedData].reverse();
   }
 
   navSwitchCallback = (mode: string) => {
     if(mode === 'feed'){
-      this.localFilteredData = [...this.filteredFeedData];
-    } else {
-      this.localFilteredData = [...this.filteredBlogData];
+      this.localFilteredData = [...this.filteredFeedData].reverse();
+    } else if(mode === 'blog'){
+      this.localFilteredData = [...this.filteredBlogData].reverse();
+    }else {
+      this.localFilteredData = [...this.filteredStoryData].reverse();
     }
   }
 
@@ -33,10 +37,16 @@ export class FeedComponent implements OnInit{
     this.filteredFeed.filter((val)=>{
       if(val.category === 'question'){
         this.filteredFeedData.push(val);
-      } else {
+      } else if(val.category === 'blog'){
         this.filteredBlogData.push(val);
+      } else {
+        this.filteredStoryData.push(val);
+
       }
     })
+    console.log(this.filteredFeedData);
+    console.log(this.filteredBlogData);
+    console.log(this.filteredStoryData);
   }
 
 }

@@ -1,4 +1,4 @@
-<div class="container-fluid m-0 border p-3">
+<div class="container-fluid m-0 p-3 nav-theme">
     <div class="row d-flex justify-content-between w-100">
         <div style="font-size: 2rem;" class="logo col-md-6">
             <b>{{'Koul.' | uppercase}}</b>
@@ -7,6 +7,9 @@
         <div class="sub-nav d-flex flex-row col-md-6 justify-content-evenly">
             <div class="search-bar">
                 <app-search-post></app-search-post>
+            </div>
+            <div>
+                Hey, {{activeUser}}
             </div>
             <div>
                 Resources

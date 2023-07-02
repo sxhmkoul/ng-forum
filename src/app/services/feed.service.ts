@@ -1,7 +1,7 @@
 import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { feedModal } from '../components/feed/feed.modal';
-import { Subject } from 'rxjs';
+import { Subject, map, tap } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -25,12 +25,14 @@ export class FeedService {
   constructor(private http: HttpClient) { console.log('service loaded');}
 
   fetchFeed = (token : any) => {
-    return this.http.get<feedModal[]>('https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json')      
+    return this.http.get<feedModal[]>('https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json').pipe(map(res=>{
+      return Object.values(res);
+    }))
   }
 
-  createFeed = () => {
+  createFeed = (config: any) => {
     return this.http.post('https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json', {
-      
+      ...config
     })
   }
 

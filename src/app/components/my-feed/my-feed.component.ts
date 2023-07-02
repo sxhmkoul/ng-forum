@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, OnInit } from '@angular/core';
 import { AnimationOptions } from 'ngx-lottie';
 import { FeedService } from 'src/app/services/feed.service';
 import { feedModal } from '../feed/feed.modal';
@@ -17,7 +17,7 @@ export class MyFeedComponent implements OnInit{
   animationOptions: AnimationOptions = {
     path: 'assets/animations/donut.json',
   };
-  constructor(public FeedService: FeedService, private AuthService: AuthService){}
+  constructor(public FeedService: FeedService, private AuthService: AuthService, private cdr: ChangeDetectorRef){}
 
   ngOnInit(): void {  
         this.fetchFeed();
@@ -26,9 +26,11 @@ export class MyFeedComponent implements OnInit{
   fetchFeed = () => {
     this.FeedService.fetchFeed(this.token)
     .subscribe(response=>{
-      this.data = response;
-      this.FeedService.dummyData = response;
+      this.data = response.reverse();
+      this.FeedService.dummyData = response.reverse();
       this.dataLoaded = true;
+      console.log('this.FeedService.dummyData my feed',this.FeedService.dummyData);
+      // this.cdr.detectChanges();
     },
     error=>{
       console.log(error.error);
