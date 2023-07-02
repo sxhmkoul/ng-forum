@@ -43,7 +43,6 @@ export class AuthService {
 
       .pipe(
         catchError((error) => {
-          // handle error logic here i.e. switch case for error codes or responses.
           console.log('error occured', error);
           return throwError('Oh shit');
         }),
