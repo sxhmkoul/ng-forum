@@ -50,8 +50,6 @@ import { AnimatorComponent } from './components/animator/animator.component';
 // material
 import { MatDialogModule } from '@angular/material/dialog';
 
-
-
 export function playerFactory() {
   return player;
 }
@@ -102,11 +100,15 @@ export function playerFactory() {
     HttpClientModule,
     LottieModule.forRoot({ player: playerFactory }),
     BrowserAnimationsModule,
-    MatDialogModule
+    MatDialogModule,
   ],
   providers: [
-    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptorInterceptor, multi: true }
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptorInterceptor,
+      multi: true,
+    },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

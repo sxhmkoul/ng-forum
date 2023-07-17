@@ -1,0 +1,31 @@
+@import "../../scss/animations.scss";
+
+dialog::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+}
+
+dialog {
+  padding: 0;
+  width: 45rem;
+  height: 78%;
+  border-radius: 10px;
+  animation: fadeInDown 0.2s ease-in-out;
+}
+
+li {
+  border-color: silver !important;
+}
+
+li:hover {
+  background-color: silver;
+  cursor: pointer;
+}
+
+@media (max-width: 480px) {
+  /* CSS rules here will be applied only on screens up to 768px wide */
+  dialog {
+    padding: 0;
+    max-width: 98%;
+  }
+}

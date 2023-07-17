@@ -1,9 +1,10 @@
 @import "../../scss/themes.scss";
+@import "../../scss/animations.scss";
 
 table {
-    border-collapse: separate;
-    border-spacing: 0 1em;
-    padding: 10px;
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  padding: 10px;
 }
 
 // table:hover {
@@ -13,17 +14,17 @@ table {
 textarea,
 input,
 select {
-    border: none;
+  border: none;
   box-shadow: none;
   outline: 0 none;
   color: white;
-  transition: all .2s ease;
+  transition: all 0.2s ease;
 }
 
 textarea:focus,
 input:focus,
 select:focus {
-    border: none;
+  border: none;
   box-shadow: none;
   outline: 0 none;
   color: white;
@@ -33,25 +34,13 @@ select:focus {
 textarea:hover,
 input:hover,
 select:hover {
-    border: none;
+  border: none;
   box-shadow: none;
   outline: 0 none;
   background-color: $dark-field-hover;
 }
 
-
-// input::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
-//     color: silver;
-//     opacity: 1; /* Firefox */
-//   }
-  
-//   input:-ms-input-placeholder { /* Internet Explorer 10-11 */
-//     color: silver;
-//   }
-  
-//   input::-ms-input-placeholder { /* Microsoft Edge */
-//     color: silver;
-//   }
-
-
-
+i.success {
+  font-size: 6rem;
+  animation: ease-out 0.4s fadeInDown;
+}

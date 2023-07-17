@@ -103,7 +103,7 @@ app-button {
   border-radius: 5px;
   border: 2px solid var(--main-color);
   background-color: var(--bg-color);
-  box-shadow: 4px 4px var(--main-color);
+  box-shadow: 2px 2px var(--main-color);
   font-size: 17px;
   font-weight: 600;
   color: var(--font-color);
@@ -111,8 +111,9 @@ app-button {
   transition: all .2s ease-in-out; 
 
   &:hover {
-    transform: scale(1.1);
-    box-shadow: 5px 6px var(--main-color);
+    transform: scale(1.2);
+    transform: translate(-2px, .5px);
+    box-shadow: 5px 5px var(--main-color);
   }
 }
 

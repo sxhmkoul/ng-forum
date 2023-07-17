@@ -1,9 +1,6 @@
 .content-body {
     background: #1E1F26;
-
-    // app-menu-wrapper, app-todo-wrapper, app-feed-wrapper{
-    //     // border: 2px solid gray;
-    // }
+    justify-content: center;
     app-todo-wrapper {
         text-align: center;
     }
@@ -18,7 +15,8 @@
 .feed-wrapper {
     overflow: scroll;
     height: 100vh;
-    
+    max-width: 750px;
+
     // -ms-overflow-style: none;  /* IE and Edge */
     // scrollbar-width: none;  /* Firefox */
 }
@@ -29,7 +27,7 @@
     box-shadow: inset 0 0 5px transparent;
     border-radius: 1px;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: gray;

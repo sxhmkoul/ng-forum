@@ -1,31 +1,23 @@
 <div class="container-fluid m-0 p-3 nav-theme">
-    <div class="row d-flex justify-content-between w-100">
-        <div style="font-size: 2rem;" class="logo col-md-6">
-            <b>{{'Koul.' | uppercase}}</b>
-        </div>
-        
-        <div class="sub-nav d-flex flex-row col-md-6 justify-content-evenly">
-            <div class="search-bar">
-                <app-search-post></app-search-post>
-            </div>
-            <div>
-                Hey, {{activeUser}}
-            </div>
-            <div>
-                Resources
-            </div>
-            <div (click)="activateTodo()">
-                Todo List
-            </div>
-            <!-- <a *ngIf="SharedService.pageView !== 'login-signup' && loginStatus" routerLink="/login"><div>
-                Login/Signup
-            </div></a> -->
-            <div *ngIf="loginStatus" (click)="logout()">
-                Logout
-            </div>
-        </div>
+  <div class="row d-flex justify-content-between w-100">
+    <div style="font-size: 2rem" class="logo col-md-6">
+      <b>{{ "Koul." | uppercase }}</b>
     </div>
+
+    <div class="sub-nav d-flex flex-row col-md-6 justify-content-evenly">
+      <div class="search-bar">
+        <app-search-post></app-search-post>
+      </div>
+      <div>Hey, {{ activeUser || "User" }}</div>
+      <div>Resources</div>
+      <div (click)="activateTodo()">Todo List</div>
+      <div *ngIf="loginStatus" (click)="logout()">
+        <i class="fa-solid fa-right-from-bracket" style="color: #ffffff"></i
+        >&nbsp;Logout
+      </div>
+    </div>
+  </div>
 </div>
 <div class="floating-todo" *ngIf="todoSwitchNav">
-    <app-todo-list></app-todo-list>
+  <app-todo-list></app-todo-list>
 </div>

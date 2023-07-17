@@ -1,8 +1,37 @@
-<div style="position: relative;">
-    <app-input incomingId="searchBar" (callback)="expandSearch($event)" type="text" [showLabel]="false" name="Search any post"></app-input>
-    <div *ngIf="searchParam" style="position: absolute; background-color: white; width: 100%;">
-        <ul class="m-0 p-0">
-            <li *ngFor="let feed of searchResult" class="border border-dark border-top-0" style="list-style: none; border-top: none;">{{feed}}</li>
-        </ul>
-    </div>
+<div style="position: relative">
+  <span (click)="searchInit()"><i class="bi bi-search"></i>&nbsp;Search</span>
+  <!-- <div *ngIf="searchParam" class="backdrop"></div> -->
+  <dialog #searchRef class="animate__animated animate__fadeIn">
+    <app-input
+      class="d-block p-4"
+      incomingId="searchBar"
+      (callback)="expandSearch($event)"
+      type="text"
+      [showLabel]="false"
+      name="Search any post"
+    ></app-input>
+    <ul *ngIf="searchParam" class="m-0 p-0">
+      <li
+        *ngFor="let feed of searchResult; let i = index"
+        (click)="gotoPost(feed.postId)"
+        class="border border-start-0 border-end-0 border-dark p-3"
+        [ngClass]="{ 'border-top-0': i != 0 }"
+        style="list-style: none"
+      >
+        {{ feed.question }}
+      </li>
+    </ul>
+    <ul *ngIf="!searchParam" class="m-0 p-0">
+      <h3 class="text-center">Recent Posts:</h3>
+      <li
+        *ngFor="let feed of latestFeed; let i = index"
+        (click)="gotoPost(feed.postId)"
+        class="border border-start-0 border-end-0 border-dark border-top-0 p-3"
+        [ngClass]="{ 'border-bottom-0': i == searchResult.length - 1 }"
+        style="list-style: none"
+      >
+        {{ feed.question }}
+      </li>
+    </ul>
+  </dialog>
 </div>

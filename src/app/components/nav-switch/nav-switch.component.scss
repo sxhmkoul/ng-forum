@@ -29,10 +29,16 @@
   }
 }
 
+.parent-wrapper {
+  padding: .5rem 0 0 0;
+    width: 100%;
+    display: block;
+}
+
 
 .active {
     background-color: gold;
-    
+
     // padding: 0 1rem;
 
     &--left {
@@ -50,7 +56,9 @@
   --font-color-light: #FFF;
   --bg-color: #fff;
   --main-color: #323232;
-  position: relative;
+  // position: relative;
+  position: sticky;
+  top: 0;
   width: 300px;
   height: 50px;
   background-color: var(--bg-color);
@@ -59,7 +67,7 @@
   display: flex;
   flex-direction: row;
   box-shadow: 4px 4px var(--main-color);
-  margin: 20px auto;
+  margin: 0 auto;
 }
 
 .option {
@@ -100,5 +108,9 @@
 
 .input:checked + .btn .span {
   color: var(--font-color-light);
+}
+
+.z-index-n1{
+  z-index: -1;
 }
 

@@ -6,24 +6,53 @@
 </div> -->
 
 <!-- Mono Theme -->
-
-<div class="wrapper">
+<div class="parent-wrapper position-relative">
+  <div class="wrapper">
     <div class="option">
-      <input #feed (click)="navSwitchFlipped('feed', $event.target)" data-fn="feed" class="input" type="radio" name="btn" value="option1" checked="">
+      <input
+        #feed
+        (click)="navSwitchFlipped('feed', $event.target)"
+        data-fn="feed"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option1"
+        checked=""
+      />
       <div class="btn">
-        <span class="span">Questions</span>
+        <div class="span d-flex">
+          <div>Questions</div>
+        </div>
       </div>
     </div>
     <div class="option">
-      <input #blog (click)="navSwitchFlipped('blog', $event.target)" data-fn="blog" class="input" type="radio" name="btn" value="option2">
+      <input
+        #blog
+        (click)="navSwitchFlipped('blog', $event.target)"
+        data-fn="blog"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option2"
+      />
       <div class="btn">
         <span class="span">Posts</span>
-      </div>  </div>
+      </div>
+    </div>
     <div class="option">
-      <input  #story (click)="navSwitchFlipped('story', $event.target)" data-fn="story" class="input" type="radio" name="btn" value="option3">
+      <input
+        #story
+        (click)="navSwitchFlipped('story', $event.target)"
+        data-fn="story"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option3"
+      />
       <div class="btn">
         <span class="span">Stories</span>
-      </div>  
+      </div>
     </div>
   </div>
-  
+  <div class="backdrop position-absolute top-0 w-100 h-100 z-index-n1"></div>
+</div>

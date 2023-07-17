@@ -1,27 +1,33 @@
-.sub-menu{
-    a {
-        text-decoration: none;
-        color: black;
-    }
+@import "../../scss/animations.scss";
 
-    a:hover {
-        font-weight: 600;
-        animation: fadeIn 1s;
-    }
-    
+.sub-menu {
+  font-size: 20px;
+  a {
+    text-decoration: none;
+    color: black;
+  }
+
+  i {
+    font-size: 26px;
+    min-width: 26px;
+  }
+
+  a:hover {
+    background-color: #d0e1f9;
+    // animation: ease-in 1s fadeIn;
+    width: 60%;
+    border-radius: 30px;
+  }
 }
 
-.sub-menu__list{
-    border-radius: 1rem;
-    margin: 1rem !important;
-    width: 90%;
-
+.sub-menu__list {
+  border-radius: 1rem;
+  padding: 0.5rem !important;
+  margin-left: 15px;
+  width: 90%;
 }
 
-.active{
-    background-color: #4D648D;
-    color: white !important;
-    padding: 1rem;
-    font-weight: 600;
+.active {
+  color: #1058ca !important;
+  font-weight: 600;
 }
-

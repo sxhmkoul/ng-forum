@@ -1,35 +1,56 @@
-<h3 *ngIf="!postComplete" class="modal__bg text-white text-center m-0 py-3 border border-secondary border-top-0 border-start-0 border-end-0"><i class="bi bi-newspaper"></i>&nbsp;Create a new post</h3>
+<h3
+  *ngIf="!postComplete"
+  class="modal__bg text-white text-center m-0 py-3 border border-secondary border-top-0 border-start-0 border-end-0"
+>
+  <i class="bi bi-newspaper"></i>&nbsp;Create a new post
+</h3>
 <mat-dialog-content class="mat-typography p-0 modal__bg text-white">
   <div *ngIf="!postComplete" class="d-flex">
-    <form (ngSubmit)="submitPost(composerForm)" #composerForm="ngForm" class="p-4 w-70 flex-grow-2">
+    <form
+      (ngSubmit)="submitPost(composerForm)"
+      #composerForm="ngForm"
+      class="p-4 w-70 flex-grow-2"
+    >
       <div class="mb-3">
-        <label for="heading" class="col-sm-4 col-form-label">{{heading}}</label>
+        <label for="heading" class="col-sm-4 col-form-label">{{
+          heading
+        }}</label>
         <div class="col-sm-12">
-          <input type="text" 
-          class="form-control modal__field" 
-          id="heading" 
-          placeholder=""
-          name="heading"
-          ngModel>
+          <input
+            type="text"
+            class="form-control modal__field"
+            id="heading"
+            placeholder=""
+            name="heading"
+            ngModel
+          />
         </div>
       </div>
       <div class="mb-3">
-        <label for="desc" class="col-sm-4 col-form-label">Describe your {{composerForm.value.category}}</label>
+        <label for="desc" class="col-sm-4 col-form-label"
+          >Describe your {{ composerForm.value.category }}</label
+        >
         <div class="col-sm-12">
-          <textarea name="desc" 
-          class="form-control modal__field" 
-          rows="3" 
-          id="desc"
-          ngModel></textarea>
+          <textarea
+            name="desc"
+            class="form-control modal__field"
+            rows="3"
+            id="desc"
+            ngModel
+          ></textarea>
         </div>
       </div>
-      <div class=" mb-3">
-        <label for="category" class="col-sm-4 col-form-label">Choose a category</label>
+      <div class="mb-3">
+        <label for="category" class="col-sm-4 col-form-label"
+          >Choose a category</label
+        >
         <div class="col-sm-12">
-          <select (change)="categorySwitch()" class="form-select form-select-md mb-3 modal__field" 
-          aria-label=".form-select-lg example"
-          name="category"
-          ngModel="question"
+          <select
+            (change)="categorySwitch()"
+            class="form-select form-select-md mb-3 modal__field"
+            aria-label=".form-select-lg example"
+            name="category"
+            ngModel="question"
           >
             <option class="bg-dark" value="question" selected>Question</option>
             <option class="bg-dark" value="blog">Post</option>
@@ -37,15 +58,17 @@
           </select>
         </div>
       </div>
-  
+
       <mat-dialog-actions>
-      <div class="w-100 text-center">
-        <button mat-button type="submit" class="btn btn-primary w-60">Create {{composerForm.value.category}}</button>
-        
+        <div class="w-100 text-center">
+          <button mat-button type="submit" class="btn btn-primary w-60">
+            Create {{ composerForm.value.category }}
+          </button>
+
           <!-- <button mat-button mat-dialog-close>Cancel</button>
           <button mat-button [mat-dialog-close]="true" cdkFocusInitial>Install</button> -->
         </div>
-        </mat-dialog-actions>
+      </mat-dialog-actions>
     </form>
     <div class="py-3 flex-grow-1 w-30 zoom" id="post-rules">
       <table class="border rounded me-3 bg-white text-black">
@@ -53,20 +76,33 @@
           <th class="h5"><i class="bi bi-chat-square-text"></i> Remember</th>
         </tr>
         <tr>
-          <td><i class="bi bi-check-lg"></i> Do not use any explicit words and be respectful to the community.</td>
+          <td>
+            <i class="bi bi-check-lg"></i> Do not use any explicit words and be
+            respectful to the community.
+          </td>
         </tr>
         <tr>
-          <td><i class="bi bi-check-lg"></i> Do not include any sensitive information in the posts as this is a public portal.</td>
+          <td>
+            <i class="bi bi-check-lg"></i> Do not include any sensitive
+            information in the posts as this is a public portal.
+          </td>
         </tr>
         <tr>
-          <td><i class="bi bi-check-lg"></i> Do not upload any image that is against the community guidelines.</td>
+          <td>
+            <i class="bi bi-check-lg"></i> Do not upload any image that is
+            against the community guidelines.
+          </td>
         </tr>
       </table>
     </div>
   </div>
+  <div *ngIf="postComplete" class="text-center d-flex flex-column p-5 gap-3">
+    <i class="fa-solid fa-circle-check success" style="color: #33eb00"></i>
+
+    <h1>Post published to feed.</h1>
+    <!-- <h4>You can navigate to Posts to see it.</h4> -->
+    <button class="btn btn-primary" (click)="closeDialog()">
+      Go to my posts
+    </button>
+  </div>
 </mat-dialog-content>
-<div *ngIf="postComplete">
-  <div><i class="bi bi-check-circle-fill"></i></div>
-  <span>Your post has been created! Taking you back...</span>
-  <button (click)="closeDialog()">Go to my posts</button>
-</div>

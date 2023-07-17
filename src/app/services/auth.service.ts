@@ -12,6 +12,7 @@ import {
 import { User } from '../modals/user.model';
 import { Router } from '@angular/router';
 import { CredentialService } from './credential.service';
+import { UserService } from './user.service';
 
 @Injectable({
   providedIn: 'root',
@@ -26,7 +27,8 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private CredentialService: CredentialService
+    private CredentialService: CredentialService,
+    private UserService: UserService
   ) {}
 
   signup = (userData: AuthModel['signUpPayload']) => {
@@ -86,7 +88,9 @@ export class AuthService {
   logout = () => {
     // this.isLoggedIn = false;
     this.userData.next(null);
+    this.UserService.userInfoSubject.next(null);
     localStorage.removeItem('token');
+    localStorage.removeItem('userInfo');
     this.router.navigate(['/login']);
   };
 }

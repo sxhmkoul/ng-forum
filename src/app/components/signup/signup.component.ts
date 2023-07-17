@@ -92,8 +92,8 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.AuthService.signup(this.signupData).subscribe(
       (res) => {
         console.log('user created successfully');
-        this.UserService.createUser(this.userInfo).subscribe((res:any) => {
-          this.UserService.setUserInfo(res);
+        this.UserService.createUser(this.userInfo).subscribe((res: any) => {
+          this.UserService.userInfoSubject.next(res);
           // localStorage.setItem('userInfo', JSON.stringify(res));
         });
         this.router.navigate(['/feed']);
