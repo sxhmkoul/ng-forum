@@ -12,11 +12,12 @@ import {
 import { User } from '../modals/user.model';
 import { Router } from '@angular/router';
 import { UserService } from './user.service';
+import { environment } from 'src/environment/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  API_KEY = process.env['NEXT_PUBLIC_api_keys_firebase_firebase_auth'];
+  API_KEY = environment.apiKey;
   userData = new BehaviorSubject<User | null>(null);
   localToken = localStorage.getItem('token');
   isLoggedIn: boolean = false;

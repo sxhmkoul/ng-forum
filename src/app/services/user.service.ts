@@ -3,13 +3,13 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserConfig } from '../modals/user-config.model';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { feedModal } from '../components/feed/feed.modal';
+import { environment } from 'src/environment/environment';
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  ngBackend: string =
-    process.env['NEXT_PUBLIC_api_keys_firebase_databaseUrl'] ?? '';
-  apiKey = process.env['NEXT_PUBLIC_api_keys_firebase_firebase_rtdb'];
+  ngBackend: string = environment.apiUrl;
+  apiKey = environment.apiKey;
   userInfoSubject = new BehaviorSubject<UserConfig | null>(null);
   userInfo!: UserConfig;
 

@@ -2,6 +2,7 @@ import { Injectable, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { feedModal } from '../components/feed/feed.modal';
 import { Subject, map, tap } from 'rxjs';
+import { environment } from 'src/environment/environment';
 
 @Injectable({
   providedIn: 'root',
@@ -9,7 +10,7 @@ import { Subject, map, tap } from 'rxjs';
 export class FeedService {
   isLoaded: boolean = false;
   dummyData!: feedModal[];
-  RTDB_URL = process.env['NEXT_PUBLIC_api_keys_firebase_databaseUrl'];
+  RTDB_URL = environment.apiUrl;
   testSubject: Subject<feedModal[]> = new Subject<feedModal[]>();
   localToken: string | null = localStorage.getItem('token');
 

@@ -17,7 +17,7 @@ export class OpenAIService {
       {
         headers: new HttpHeaders({
           'Content-Type': 'application/json',
-          Authorization: process.env['NEXT_PUBLIC_api_keys_open_ai'] || '',
+          Authorization: '',
         }),
       }
     );
