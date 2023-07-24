@@ -1,3 +1,5 @@
+@import "../../scss/animations.scss";
+
 .floating-todo {
     position: absolute;
     background: white;
@@ -18,4 +20,34 @@
 .nav-theme {
     background-color: black;
     color: white;
+}
+
+.sub-nav {
+  display: block;
+}
+
+app-hamburger {
+  display: none;
+}
+
+.ham-animate {
+      position: absolute !important;
+      top: 70px;
+      right: -40px;
+      background: white;
+      z-index: 999;
+      width: 15rem;
+      border-top-left-radius: 15px;
+      border-bottom-left-radius: 15px;
+      height: calc(90vh - 68px);
+}
+
+@media only screen and (max-width: 850px){
+  .sub-nav {
+    display: none !important;
+  }
+
+    app-hamburger{
+      display: block;
+    }
 }

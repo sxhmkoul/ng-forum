@@ -1,6 +1,8 @@
 import {
   ChangeDetectorRef,
   Component,
+  ContentChild,
+  ContentChildren,
   OnChanges,
   OnInit,
   SimpleChanges,
@@ -8,6 +10,8 @@ import {
 import { AuthService } from 'src/app/services/auth.service';
 import { SharedService } from 'src/app/services/shared.service';
 import { UserService } from 'src/app/services/user.service';
+import { MenuVerticalComponent } from '../menu-vertical/menu-vertical.component';
+import { menuMap } from '../menu-vertical/menu.modal';
 
 @Component({
   selector: 'app-navbar',
@@ -15,9 +19,23 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  @ContentChild(MenuVerticalComponent)
+  MenuVerticalComponent!: MenuVerticalComponent;
+  [x: string]: any;
   todoSwitchNav: boolean = false;
   loginStatus: boolean = false;
   activeUser: string = '';
+  mobileMenuMapping: menuMap[] = [
+    {
+      icon: 'fa-newspaper',
+      text: 'Hey,' + (this.activeUser || 'User'),
+      routerLink: '/profile',
+    },
+    { icon: 'fa-clipboard', text: 'My Posts', routerLink: '/my-posts' },
+    { icon: 'fa-heart', text: 'Liked', routerLink: '/liked' },
+    { icon: 'fa-clipboard', text: 'Tags', routerLink: '/feed/tags' },
+    { icon: 'fa-user', text: 'Profile', routerLink: '/profile' },
+  ];
 
   constructor(
     public SharedService: SharedService,
@@ -33,12 +51,11 @@ export class NavbarComponent implements OnInit {
     });
 
     this.UserService.userInfoSubject.subscribe((res) => {
-      // this.UserService.userInfo = {...Object.values(res)[0]};
-      // this.activeUser = res && Object.values(res)[0].first_name;
       console.log('subbed', res);
       this.activeUser = res?.first_name || '';
       this.loginStatus = !!(res && Object.values(res).length);
       console.log(this.activeUser);
+      this.mobileMenuMapping[0]['text'] = 'Hey ' + this.activeUser;
     });
 
     if (!this.activeUser) {
@@ -46,11 +63,6 @@ export class NavbarComponent implements OnInit {
       console.log('localData', localData);
       this.UserService.userInfoSubject.next(localData);
       this.loginStatus = !!localData;
-      // this.activeUser = localData.first_name || '';
-      // this.AuthService.isLoggedIn = !!localStorage.getItem('token');
-      // this.UserService.userInfo = localData || {};
-      // this.cdr.detectChanges();
-      // console.log('active user here',this.activeUser);
     }
   }
 
@@ -61,4 +73,6 @@ export class NavbarComponent implements OnInit {
   logout = () => {
     this.AuthService.logout();
   };
+
+  showSubmenu = () => {};
 }

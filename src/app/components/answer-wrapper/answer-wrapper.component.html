@@ -1,17 +1,22 @@
-<app-hr-subtitle subtitle="Answers" [count]="comments && comments.length || 0"></app-hr-subtitle>
+<app-hr-subtitle
+  subtitle="Answers"
+  [count]="(comments && comments.length) || 0"
+></app-hr-subtitle>
 <div *ngIf="!!comments" class="comment">
-    <div *ngFor="let comment of comments; let i = index" >
-            <div class="comment__card">
-                <div class="comment__dp">
-                    <!-- <img src="" alt=""> -->
-                    <span class="comment__dp--initials">{{(comment.user_name[0]).toUpperCase()}}</span>
-                </div>
-                <div class="comment__core">
-                    <h6>{{comment.user_name}}</h6>
-                    <span>{{comment.comment}}</span> 
-                </div>
-            </div>
-        <hr *ngIf="i != comments.length-1">
+  <div *ngFor="let comment of comments; let i = index">
+    <div class="comment__card">
+      <div class="comment__dp">
+        <!-- <img src="" alt=""> -->
+        <span class="comment__dp--initials">{{
+          comment.user_name[0].toUpperCase()
+        }}</span>
+      </div>
+      <div class="comment__core">
+        <h6>{{ comment.user_name }}</h6>
+        <span>{{ comment.comment }}</span>
+      </div>
     </div>
+    <hr *ngIf="i != comments.length - 1" />
+  </div>
 </div>
-<h2 class="text-center" *ngIf="!comments">No comments. Make one?</h2>
+<h2 class="text-center" *ngIf="!comments">Be the first one to answer.</h2>

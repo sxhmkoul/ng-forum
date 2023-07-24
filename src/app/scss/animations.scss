@@ -35,7 +35,7 @@
 }
 
 .animate-fadeInRight {
-  animation: fadeInRight 0.3s;
+  animation: fadeInRight .2s ease both;
 }
 
 @keyframes fadeInDown {
@@ -47,4 +47,19 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+@keyframes expand {
+  0% {
+    width: 15%;
+  }
+
+  100% {
+    width: 33%;
+  }
+
+}
+
+.animate-expand {
+  animation: expand .2s ease both;
 }

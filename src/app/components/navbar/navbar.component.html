@@ -1,23 +1,26 @@
-<div class="container-fluid m-0 p-3 nav-theme">
+<div class="container-fluid m-0 p-3 nav-theme position-relative">
   <div class="row d-flex justify-content-between w-100">
-    <div style="font-size: 2rem" class="logo col-md-6">
+    <div style="font-size: 2rem" class="logo col-2">
       <b>{{ "Koul." | uppercase }}</b>
     </div>
 
-    <div class="sub-nav d-flex flex-row col-md-6 justify-content-evenly">
-      <div class="search-bar">
-        <app-search-post></app-search-post>
-      </div>
+    <div
+      *ngIf="loginStatus"
+      class="sub-nav d-flex flex-row col-md-6 justify-content-evenly align-items-center"
+    >
       <div>Hey, {{ activeUser || "User" }}</div>
       <div>Resources</div>
       <div (click)="activateTodo()">Todo List</div>
-      <div *ngIf="loginStatus" (click)="logout()">
+      <div (click)="logout()">
         <i class="fa-solid fa-right-from-bracket" style="color: #ffffff"></i
         >&nbsp;Logout
       </div>
     </div>
+    <app-hamburger class="col-1">
+      <app-menu-vertical
+        [mapping]="mobileMenuMapping"
+        class="ham-animate animate-fadeInRight"
+      ></app-menu-vertical>
+    </app-hamburger>
   </div>
-</div>
-<div class="floating-todo" *ngIf="todoSwitchNav">
-  <app-todo-list></app-todo-list>
 </div>

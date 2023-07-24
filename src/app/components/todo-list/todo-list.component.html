@@ -1,16 +1,38 @@
-<div class="text-center">
-    <h3>Note that down.</h3>
+<div class="text-start">
+  <h3>Something in mind?</h3>
 
-    <div class="todo__body">
-        <input class="todo-input" type="text" placeholder="Something in mind?" #inputList>
-        <input class="todo-add btn btn-secondary" (click)='onAddToList()' type="button" value="Add to list" />
-
-        <div>
-            <span (click)="onRemoveFromList($event)" *ngFor="let list of todoListArray">{{list}}<br></span>
-        </div>
-
-        <div>
-            <span *ngFor="let list of doneListArray">{{list}}<br></span>
-        </div>
+  <div class="todo__body">
+    <div class="d-flex">
+      <input
+        class="todo-input w-100"
+        (keyup.enter)="onAddToList()"
+        type="text"
+        placeholder="Note that down"
+        #inputList
+        ngModel
+      />
+      <span
+        *ngIf="inputList.value"
+        class="todo-add d-flex align-items-center"
+        (click)="onAddToList()"
+        type="button"
+        value="Add to list"
+        ><i class="fa-solid fa-circle-plus"></i
+      ></span>
     </div>
+
+    <ul class="todo-ul" *ngIf="todoListArray.length">
+      <li
+        class="todo-li"
+        (click)="onRemoveFromList($event)"
+        *ngFor="let list of todoListArray"
+      >
+        {{ list }}<br />
+      </li>
+    </ul>
+
+    <!-- <div>
+      <span *ngFor="let list of doneListArray">{{ list }}<br /></span>
+    </div> -->
+  </div>
 </div>

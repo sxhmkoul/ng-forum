@@ -1,0 +1,96 @@
+<div class="w-100 d-flex flex-column text-start m-0 p-3">
+  <h3>Statistics</h3>
+  <!-- <h5>Your total posts: {{ 5 }}</h5> -->
+  <h5 *ngIf="SharedService.pageView !== 'PF'" class="backdrop-text">
+    {{ 34 }} Posts Published
+  </h5>
+  <div *ngIf="isExpanded">
+    <h6>You have posted</h6>
+    <div class="d-flex flex-row">
+      <h5>{{ 5 }}&nbsp;</h5>
+      <span>Blogs</span>
+    </div>
+    <div class="d-flex flex-row">
+      <h5>{{ 17 }}&nbsp;</h5>
+      <span>Questions</span>
+    </div>
+    <div class="d-flex flex-row">
+      <h5>{{ 12 }}&nbsp;</h5>
+      <span>Stories</span>
+    </div>
+    <h5>That's 11% of Total Feed</h5>
+  </div>
+  <!-- <h6>You seem like a</h6>
+  <h5>{{ "Curious Armadillo" }}</h5> -->
+</div>
+<div *ngIf="SharedService.pageView === 'PF'" class="d-flex flex-column gap-5">
+  <app-carousel
+    [conditions]="conditions"
+    (conditionSwitch)="setCondition($event)"
+  >
+    <div
+      [ngSwitch]="currentCondition"
+      class="w-100 d-flex justify-content-evenly"
+    >
+      <div
+        *ngSwitchCase="'piechart'"
+        class="w-100 d-flex align-items-center justify-content-evenly flex-wrap"
+      >
+        <app-piechart></app-piechart>
+        <div class="support-text">
+          <span
+            >That's more than {{ 20 }}% of the total feed! <br />That means
+            you're ahead than {{ 93 }}% of users. Good job!</span
+          >
+        </div>
+      </div>
+      <div *ngSwitchCase="'histograph'">
+        <app-histograph></app-histograph>
+        <div class="support-text">
+          <span
+            >You've been posting from January 2022, that's more than a year!
+            Also, you went nuts and posted 37 posts in March 2023.
+            Awesome!</span
+          >
+        </div>
+      </div>
+      <div *ngSwitchCase="'bargraph-hor'" class="d-flex">
+        <app-bargraph-hor></app-bargraph-hor>
+        <div class="support-text">
+          <span
+            >You've been posting from January 2022, that's more than a year!
+            Also, you went nuts and posted 37 posts in March 2023.
+            Awesome!</span
+          >
+        </div>
+      </div>
+      <div *ngSwitchCase="'summary'">
+        <div class="stats-summary">
+          <h2>
+            With more than {{ 100 }} thanks, You're been a big help to the
+            community, {{ "Bedanta" }}.
+          </h2>
+        </div>
+      </div>
+      <div *ngSwitchDefault>
+        <app-forbidden></app-forbidden>
+      </div>
+    </div>
+  </app-carousel>
+</div>
+<app-button
+  *ngIf="!isExpanded && SharedService.pageView !== 'PF'"
+  (click)="switchExpand()"
+  type="strip"
+  class="w-100"
+  placeholder=""
+  >View More</app-button
+>
+<app-button
+  *ngIf="isExpanded && SharedService.pageView !== 'PF'"
+  type="strip"
+  class="w-100"
+  bg="#383838"
+  placeholder=""
+  >View Detailed Insights</app-button
+>

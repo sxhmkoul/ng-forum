@@ -1,17 +1,34 @@
-<div class="feed__card bg-white m-3 shadow-sm">
-    <div class="d-flex mini-profile justify-content-between">
-        <div class="d-flex">
-            <div class="dp"><img src="{{cardData.dpUrl}}" alt=""></div>
-                <div class="d-flex flex-column info">
-                    <div class="author">{{cardData.name}}</div>
-                    <div class="parent-tag">{{cardData.work}}</div>
-                    <div>{{cardData.timeStamp}}</div>
-                </div>
+<div class="feed__card shadow-sm">
+  <div class="d-flex mini-profile justify-content-between">
+    <div class="d-flex">
+      <div class="dp">
+        <img *ngIf="cardData.dpUrl" src="{{ cardData.dpUrl }}" alt="" />
+        <span class="comment__dp--initials initials" *ngIf="!cardData.dpUrl">{{
+          getInitials[0][0]
+        }}</span>
+      </div>
+      <div class="d-flex flex-column info">
+        <div class="author">{{ cardData.name }}</div>
+        <div class="parent-tag">{{ cardData.work }}</div>
+        <div class="parent-tag">
+          {{ cardData.timeStamp | postdateformatter }}
         </div>
-        <div class="like" (click)="likeSwitch()">
-            <i [ngClass]="heartLikedFlag || cardData.liked ? 'bi bi-suit-heart-fill text-danger':'bi bi-suit-heart'"></i>
-        </div>
+      </div>
     </div>
-    <a class="text-decoration-none" [routerLink]="'/feed/detail/'+cardData.postId"><h5>{{cardData.question}}</h5></a>
-    <p>{{cardData.desc}}</p>
+    <div class="like" (click)="likeSwitch()">
+      <i
+        [ngClass]="
+          heartLikedFlag || cardData.liked
+            ? 'bi bi-suit-heart-fill text-danger'
+            : 'bi bi-suit-heart'
+        "
+      ></i>
+    </div>
+  </div>
+  <a
+    class="text-decoration-none text-white"
+    [routerLink]="'/feed/detail/' + cardData.postId"
+    ><h5>{{ cardData.question }}</h5></a
+  >
+  <p>{{ cardData.desc }}</p>
 </div>

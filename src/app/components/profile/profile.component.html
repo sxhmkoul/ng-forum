@@ -1,0 +1,61 @@
+<div class="container-fluid d-flex flex-column profile p-0 overflow-auto">
+  <div class="profile__hero d-flex flex-column position-relative">
+    <div class="profile__cover">
+      <img
+        src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80"
+        alt="Profile Cover Photo"
+      />
+    </div>
+    <div [@fade] *ngIf="getSubPageType !== 'PF-ABT'" class="profile__picture">
+      <img
+        src="https://media.licdn.com/dms/image/D4D03AQFo_aPpiJP8vA/profile-displayphoto-shrink_200_200/0/1684174326550?e=1695254400&v=beta&t=X8k6-qqNnIU9qoPPv6YlHb0E8em0Ziz70D4vVGNFlKk"
+        alt=""
+      />
+    </div>
+    <div
+      *ngIf="getSubPageType !== 'PF-ABT'"
+      class="profile__body d-flex flex-column p-3"
+      [@fade]
+    >
+      <div
+        class="profile__title justify-content-end text-white w-100 d-flex flex-row gap-3"
+      >
+        <app-button
+          classes="round"
+          size=".9rem"
+          type="3d"
+          placeholder="Say Thanks"
+          class=""
+          ><i class="fa-solid fa-bell"></i
+        ></app-button>
+        <app-button size=".8rem" type="3d" placeholder="Say Thanks" class=""
+          >Say Thanks <i class="fa-regular fa-hand-peace"></i
+        ></app-button>
+      </div>
+      <div class="profile__fullname text-white pt-3">
+        <h2 class="m-0">
+          {{ userInfo?.first_name }} {{ userInfo?.last_name }}
+        </h2>
+      </div>
+      <div class="profile__username text-muted">@{{ userInfo?.username }}</div>
+      <div class="profile__bio text-white py-3">
+        {{ "Hi all, I like JavaScript and Biryani." }}
+      </div>
+      <div class="profile__info d-flex flex-row text-muted gap-4">
+        <div class="profile__info--location">
+          <i class="fa-solid fa-location-dot"></i>{{ userInfo?.country }}
+        </div>
+        <div class="profile__info--location">
+          <i class="fa-solid fa-user-tie"></i>{{ userInfo?.profession }}
+        </div>
+        <div class="profile__info--location">
+          <i class="fa-solid fa-briefcase"></i>{{ userInfo?.experience }}&nbsp;Y
+        </div>
+      </div>
+    </div>
+  </div>
+  <div [@fade] class="profile__II">
+    <app-tabs [tabs-data]="getTabsData"></app-tabs>
+  </div>
+  <router-outlet [@fade] id="profile-outlet"></router-outlet>
+</div>

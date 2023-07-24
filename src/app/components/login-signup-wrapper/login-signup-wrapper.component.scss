@@ -11,7 +11,7 @@
 }
 
 app-login {
-    z-index: 9;   
+    z-index: 9;
     position: absolute;
     background-color: white;
     top: 30%;
@@ -27,10 +27,11 @@ app-animated-background-wrapper {
 
 app-login-signup {
     position: absolute;
-    transform: translate(-50%, -50%);
     -ms-transform: translate(-50%, -50%);
-    top: 20rem;
+    transform: translate(-50%, -50%);
+    top: 40%;
     left: 50%;
+    // width: 85%;
 }
 
 // .backdrop {

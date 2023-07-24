@@ -1,0 +1,52 @@
+<h2>Carousel</h2>
+<app-carousel
+  [conditions]="conditions"
+  (conditionSwitch)="setCondition($event)"
+>
+  <div
+    [ngSwitch]="currentCondition"
+    class="w-100 d-flex justify-content-evenly"
+  >
+    <div
+      *ngSwitchCase="'piechart'"
+      class="w-100 d-flex align-items-center justify-content-evenly flex-wrap"
+    >
+      <app-piechart></app-piechart>
+      <div class="support-text">
+        <span
+          >That's more than {{ 20 }}% of the total feed! <br />That means you're
+          ahead than {{ 93 }}% of users. Good job!</span
+        >
+      </div>
+    </div>
+    <div *ngSwitchCase="'histograph'">
+      <app-histograph></app-histograph>
+      <div class="support-text">
+        <span
+          >You've been posting from January 2022, that's more than a year! Also,
+          you went nuts and posted 37 posts in March 2023. Awesome!</span
+        >
+      </div>
+    </div>
+    <div *ngSwitchCase="'bargraph-hor'" class="d-flex">
+      <app-bargraph-hor></app-bargraph-hor>
+      <div class="support-text">
+        <span
+          >You've been posting from January 2022, that's more than a year! Also,
+          you went nuts and posted 37 posts in March 2023. Awesome!</span
+        >
+      </div>
+    </div>
+    <div *ngSwitchCase="'summary'">
+      <div class="stats-summary">
+        <h2>
+          With more than {{ 100 }} thanks, You're been a big help to the
+          community, {{ "Bedanta" }}.
+        </h2>
+      </div>
+    </div>
+    <div *ngSwitchDefault>
+      <app-forbidden></app-forbidden>
+    </div>
+  </div>
+</app-carousel>

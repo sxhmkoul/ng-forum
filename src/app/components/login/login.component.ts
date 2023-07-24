@@ -18,7 +18,8 @@ import { UserService } from 'src/app/services/user.service';
   styleUrls: ['./login.component.scss'],
 })
 export class LoginComponent {
-  isLogin = false;
+  isLoggedIn = false;
+  showLoader = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -29,6 +30,7 @@ export class LoginComponent {
   ) {}
 
   loginSignupHandler = (authForm: NgForm) => {
+    this.showLoader = true;
     let loginSignupData = {
       email: authForm.value.email,
       password: authForm.value.password,
@@ -38,6 +40,7 @@ export class LoginComponent {
     this.AuthService.login(loginSignupData).subscribe(
       (res) => {
         console.log('user logged in successfully');
+        this.showLoader = false;
         this.UserService.fetchUser(loginSignupData.email).subscribe(
           (res: any) => {
             console.log(res);

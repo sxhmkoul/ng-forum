@@ -15,7 +15,7 @@ app-button {
   --font-color-sub: #666;
   --bg-color: #fff;
   --main-color: #323232;
-  padding: 2em 5em;
+  padding: 2em 4em;
   background: lightgrey;
   display: flex;
   flex-direction: column;
@@ -25,14 +25,18 @@ app-button {
   border-radius: 5px;
   border: 2px solid var(--main-color);
   box-shadow: 4px 4px var(--main-color);
-  
+
 }
 
 .title {
   color: var(--font-color);
   font-weight: 700;
-  font-size: 3rem;
-  margin-bottom: 15px;;
+  margin-bottom: 15px;
+
+  span:first-child{
+    font-size: calc(2rem + .5vw);
+    color: black;
+  }
 }
 
 .title span {
@@ -53,7 +57,7 @@ app-button {
   color: var(--font-color);
   padding: 5px 10px;
   outline: none;
-  margin: 0 auto;
+  margin: .5rem auto;
 }
 
 .input::placeholder {
@@ -108,7 +112,7 @@ app-button {
   font-weight: 600;
   color: var(--font-color);
   cursor: pointer;
-  transition: all .2s ease-in-out; 
+  transition: all .2s ease-in-out;
 
   &:hover {
     transform: scale(1.2);
@@ -123,5 +127,15 @@ app-button {
 
     &:hover {
         font-weight: 700;
+    }
+}
+
+.inputs {
+  left: 0px;
+}
+
+@media only screen and (max-width: 420px) {
+  .inputs {
+      left: -30px;
     }
 }

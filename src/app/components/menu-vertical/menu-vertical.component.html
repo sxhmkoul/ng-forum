@@ -1,52 +1,17 @@
 <div class="row sub-menu w-100 m-0 py-2">
   <a
+    *ngFor="let map of mapping; let i = index"
     class="sub-menu__list"
-    routerLink="/feed"
+    [routerLink]="map.routerLink"
     routerLinkActive="active"
     [routerLinkActiveOptions]="{ exact: false }"
   >
     <div class="col-12 d-flex gap-3 px-4 py-2">
       <i
         routerLinkActive="fa-solid"
-        class="fa-regular fa-newspaper d-flex align-items-center"
+        class="fa-regular {{ map.icon }} d-flex align-items-center"
       ></i>
-      <div>Feed</div>
-    </div>
-  </a>
-  <a class="sub-menu__list" routerLink="/my-posts" routerLinkActive="active">
-    <div class="col-12 d-flex gap-3 px-4 py-2">
-      <i
-        routerLinkActive="fa-solid"
-        class="fa-regular fa-clipboard d-flex align-items-center"
-      ></i>
-      <div>Posts</div>
-    </div>
-  </a>
-  <a class="sub-menu__list" routerLink="/liked" routerLinkActive="active">
-    <div class="col-12 d-flex gap-3 px-4 py-2">
-      <i
-        routerLinkActive="fa-solid"
-        class="fa-regular fa-heart d-flex align-items-center"
-      ></i>
-      <div>Liked</div>
-    </div>
-  </a>
-  <a class="sub-menu__list" routerLink="/feed/tags" routerLinkActive="active">
-    <div class="col-12 d-flex gap-3 px-4 py-2">
-      <i
-        routerLinkActive="fa-solid"
-        class="fa-regular fa-newspaper d-flex align-items-center"
-      ></i>
-      <div>Tags</div>
-    </div>
-  </a>
-  <a class="sub-menu__list" routerLink="/profile" routerLinkActive="active">
-    <div class="col-12 d-flex gap-3 px-4 py-2">
-      <i
-        routerLinkActive="fa-solid"
-        class="fa-regular fa-user d-flex align-items-center"
-      ></i>
-      <div>Profile</div>
+      <div>{{ map.text }}</div>
     </div>
   </a>
 </div>

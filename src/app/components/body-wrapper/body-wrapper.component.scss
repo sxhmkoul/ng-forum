@@ -14,14 +14,15 @@
 
 .feed-wrapper {
     overflow: scroll;
-    height: 100vh;
+    height: 100%;
     max-width: 750px;
 
     // -ms-overflow-style: none;  /* IE and Edge */
     // scrollbar-width: none;  /* Firefox */
 }
 .feed-wrapper::-webkit-scrollbar {
-    width: 2px;
+    // width: 2px;
+    display: none;
   }
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px transparent;
@@ -40,3 +41,12 @@
 // }
 
 /* Hide scrollbar for IE, Edge and Firefox */
+
+@media only screen and (max-width: 850px) {
+  app-menu-wrapper {
+    display: none;
+  }
+  app-todo-wrapper {
+    display: none;
+  }
+}

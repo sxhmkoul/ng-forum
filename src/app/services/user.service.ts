@@ -19,6 +19,10 @@ export class UserService {
     private CredentialService: CredentialService
   ) {}
 
+  // get getUserInfo() {
+  //   return this.userInfoSubject.getValue();
+  // }
+
   createUser = (signupForm: any) => {
     return this.http.put(
       `${this.ngBackend}/users/${signupForm.username}.json`,

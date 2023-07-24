@@ -1,2 +1,14 @@
-<span *ngIf="showLabel" class="label">Enter a {{name}}</span>
-<input id="{{incomingId}}" (input)="test($event)" class="m-0 p-0" type={{type}} name={{name}} [placeholder]="name">
+<span *ngIf="showLabel" class="label">Enter a {{ name }}</span>
+<input
+  *ngIf="type !== 'span'"
+  title="{{ incomingTitle ?? incomingId }}"
+  id="{{ incomingId }}"
+  (input)="test($event)"
+  class="m-0 p-0"
+  type="{{ type }}"
+  name="{{ name }}"
+  [placeholder]="name"
+/>
+<div *ngIf="type === 'span'" class="input-span">
+  {{ name }}
+</div>
