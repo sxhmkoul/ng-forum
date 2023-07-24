@@ -16,7 +16,7 @@ import { UserService } from './user.service';
   providedIn: 'root',
 })
 export class AuthService {
-  API_KEY = process.env['api_keys_firebase_firebase_auth'];
+  API_KEY = process.env['NEXT_PUBLIC_api_keys_firebase_firebase_auth'];
   userData = new BehaviorSubject<User | null>(null);
   localToken = localStorage.getItem('token');
   isLoggedIn: boolean = false;

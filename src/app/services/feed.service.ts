@@ -9,7 +9,7 @@ import { Subject, map, tap } from 'rxjs';
 export class FeedService {
   isLoaded: boolean = false;
   dummyData!: feedModal[];
-  RTDB_URL = process.env['api_keys_firebase_databaseUrl'];
+  RTDB_URL = process.env['NEXT_PUBLIC_api_keys_firebase_databaseUrl'];
   testSubject: Subject<feedModal[]> = new Subject<feedModal[]>();
   localToken: string | null = localStorage.getItem('token');
 

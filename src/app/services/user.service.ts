@@ -7,8 +7,9 @@ import { feedModal } from '../components/feed/feed.modal';
   providedIn: 'root',
 })
 export class UserService {
-  ngBackend: string = process.env['api_keys_firebase_databaseUrl'] ?? '';
-  apiKey = process.env['api_keys_firebase_firebase_rtdb'];
+  ngBackend: string =
+    process.env['NEXT_PUBLIC_api_keys_firebase_databaseUrl'] ?? '';
+  apiKey = process.env['NEXT_PUBLIC_api_keys_firebase_firebase_rtdb'];
   userInfoSubject = new BehaviorSubject<UserConfig | null>(null);
   userInfo!: UserConfig;
 
