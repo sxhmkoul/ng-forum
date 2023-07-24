@@ -11,14 +11,12 @@ import {
 } from 'rxjs';
 import { User } from '../modals/user.model';
 import { Router } from '@angular/router';
-import { CredentialService } from './credential.service';
 import { UserService } from './user.service';
-
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  API_KEY = this.CredentialService.API_KEYS.firebase_auth;
+  API_KEY = process.env['api_keys_firebase_firebase_auth'];
   userData = new BehaviorSubject<User | null>(null);
   localToken = localStorage.getItem('token');
   isLoggedIn: boolean = false;
@@ -27,7 +25,6 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private router: Router,
-    private CredentialService: CredentialService,
     private UserService: UserService
   ) {}
 

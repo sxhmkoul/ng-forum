@@ -9,6 +9,7 @@ import { Subject, map, tap } from 'rxjs';
 export class FeedService {
   isLoaded: boolean = false;
   dummyData!: feedModal[];
+  RTDB_URL = process.env['api_keys_firebase_databaseUrl'];
   testSubject: Subject<feedModal[]> = new Subject<feedModal[]>();
   localToken: string | null = localStorage.getItem('token');
 
@@ -26,21 +27,17 @@ export class FeedService {
   }
 
   fetchFeed = (token: any) => {
-    return this.http
-      .get<feedModal[]>(
-        'https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json'
-      )
-      .pipe(
-        map((res) => {
-          return Object.values(res);
-        })
-      );
+    return this.http.get<feedModal[]>(`${this.RTDB_URL}/feedData.json`).pipe(
+      map((res) => {
+        return Object.values(res);
+      })
+    );
   };
 
   fetchFeedByUserId = (userId?: string) => {
     return this.http
       .get<feedModal[]>(
-        `https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json?orderBy=%22userId%22&equalTo=%22${userId}%22
+        `${this.RTDB_URL}/feedData.json?orderBy=%22userId%22&equalTo=%22${userId}%22
 `
       )
       .pipe(
@@ -51,12 +48,9 @@ export class FeedService {
   };
 
   createFeed = (config: any) => {
-    return this.http.post(
-      'https://ng-backend-8a3aa-default-rtdb.firebaseio.com/feedData.json',
-      {
-        ...config,
-      }
-    );
+    return this.http.post(`${this.RTDB_URL}/feedData.json`, {
+      ...config,
+    });
   };
 
   filterFeed = async (feed: feedModal[]) => {

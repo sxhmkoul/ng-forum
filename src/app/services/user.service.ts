@@ -3,21 +3,16 @@ import { HttpClient, HttpParams } from '@angular/common/http';
 import { UserConfig } from '../modals/user-config.model';
 import { BehaviorSubject, Subject } from 'rxjs';
 import { feedModal } from '../components/feed/feed.modal';
-import { CredentialService } from './credential.service';
-
 @Injectable({
   providedIn: 'root',
 })
 export class UserService {
-  ngBackend: string = 'https://ng-backend-8a3aa-default-rtdb.firebaseio.com';
-  apiKey = this.CredentialService.API_KEYS.firebase_rtdb;
+  ngBackend: string = process.env['api_keys_firebase_databaseUrl'] ?? '';
+  apiKey = process.env['api_keys_firebase_firebase_rtdb'];
   userInfoSubject = new BehaviorSubject<UserConfig | null>(null);
   userInfo!: UserConfig;
 
-  constructor(
-    private http: HttpClient,
-    private CredentialService: CredentialService
-  ) {}
+  constructor(private http: HttpClient) {}
 
   // get getUserInfo() {
   //   return this.userInfoSubject.getValue();
