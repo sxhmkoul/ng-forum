@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FeedService } from '../../services/feed.service';
 import { feedModal } from '../feed/feed.modal';
 import { AnimationOptions } from 'ngx-lottie';
@@ -11,7 +11,7 @@ import { SharedService } from 'src/app/services/shared.service';
   templateUrl: './my-questions.component.html',
   styleUrls: ['./my-questions.component.scss'],
 })
-export class MyQuestionsComponent implements OnInit {
+export class MyQuestionsComponent implements OnInit, OnDestroy {
   // AuthService: any;
   token: any;
   constructor(
@@ -42,5 +42,9 @@ export class MyQuestionsComponent implements OnInit {
         // this.FeedService.isLoaded = true;
       });
     });
+  }
+
+  ngOnDestroy(): void {
+    this.AuthService.userData.unsubscribe();
   }
 }

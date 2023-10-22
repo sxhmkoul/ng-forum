@@ -1,4 +1,4 @@
-@import "../../../styles.scss";
+@import "../../scss/bem-mixins.scss";
 
 @include block('feed-detail'){
     @include element('container'){
@@ -13,7 +13,7 @@
     }
 
     @include element('animate'){
-        
+
     }
 }
 

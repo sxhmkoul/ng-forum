@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
 import { menuMap } from '../menu-vertical/menu.modal';
 import {
   MAT_DIALOG_DATA,

@@ -4,6 +4,7 @@ import {
   ContentChild,
   ContentChildren,
   OnChanges,
+  OnDestroy,
   OnInit,
   SimpleChanges,
 } from '@angular/core';
@@ -18,7 +19,7 @@ import { menuMap } from '../menu-vertical/menu.modal';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss'],
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent implements OnInit, OnDestroy {
   @ContentChild(MenuVerticalComponent)
   MenuVerticalComponent!: MenuVerticalComponent;
   [x: string]: any;
@@ -75,4 +76,9 @@ export class NavbarComponent implements OnInit {
   };
 
   showSubmenu = () => {};
+
+  ngOnDestroy(): void {
+    this.AuthService.userData.unsubscribe();
+    this.UserService.userInfoSubject.unsubscribe();
+  }
 }

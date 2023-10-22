@@ -22,8 +22,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './signup.component.html',
   styleUrls: ['./signup.component.scss'],
 })
-export class SignupComponent implements OnInit, OnDestroy {
-  queryParamSubscription: Subscription = new Subscription();
+export class SignupComponent {
   firstName: string = '';
   lastName: string = '';
   email: string = '';
@@ -42,19 +41,6 @@ export class SignupComponent implements OnInit, OnDestroy {
     private router: Router
   ) {}
 
-  ngOnInit(): void {
-    // this.showAdditionalInfoPanel = false;
-    // this.router.navigate(['/signup']);
-    // console.log(this.SharedService.formData);
-    //   this.queryParamSubscription = this.route.queryParams.subscribe(param=>{
-    //     if(Object.keys(param).length && param['step'] === 'info'){
-    //       this.showAdditionalInfoPanel = true;
-    //     } else {
-    //       this.showAdditionalInfoPanel = false;
-    //     }
-    //   })
-  }
-
   toUserInfo = (form: NgForm) => {
     console.log(form);
     this.signupData = {
@@ -67,20 +53,14 @@ export class SignupComponent implements OnInit, OnDestroy {
     this.userInfo['email'] = form.value.email;
     this.userInfo['username'] = form.value.username;
     this.showAdditionalInfoPanel = true;
-    console.log(this.showAdditionalInfoPanel);
   };
 
   backToSignUp = () => {
     this.showAdditionalInfoPanel = false;
-    // setTimeout(()=>{
-    console.log(this.signInForm);
-    // console.log(this.userInfo['name']);
-    console.log(this.userInfo);
     this.firstName = this.userInfo['first_name'];
     this.lastName = this.userInfo['last_name'];
     this.email = this.userInfo['email'];
     this.username = this.userInfo['username'];
-    // },0);
   };
 
   finishSignup = (authForm: NgForm) => {
@@ -103,12 +83,4 @@ export class SignupComponent implements OnInit, OnDestroy {
       }
     );
   };
-
-  ngOnDestroy(): void {
-    // this.SharedService.formData = {
-    //   email: this.authForm?.value.email,
-    //   password: this.authForm?.value.password
-    // }
-    this.queryParamSubscription.unsubscribe();
-  }
 }

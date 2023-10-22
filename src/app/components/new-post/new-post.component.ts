@@ -20,7 +20,7 @@ import { UserService } from 'src/app/services/user.service';
   templateUrl: './new-post.component.html',
   styleUrls: ['./new-post.component.scss'],
 })
-export class NewPostComponent implements OnInit, AfterViewInit {
+export class NewPostComponent {
   @ViewChild('composerForm') composerForm!: NgForm;
   heading = 'Ask a question';
   desc = '';
@@ -36,13 +36,7 @@ export class NewPostComponent implements OnInit, AfterViewInit {
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {}
 
-  // public get userInfo() {
-  //   return this.UserService.userInfo;
-  // }
-
   submitPost(form: NgForm) {
-    // console.log(form);
-    // console.log(this.UserService.userInfo);
     const userInfo = this.UserService.userInfoSubject.getValue();
     let config = {
       category: form.value.category,
@@ -63,16 +57,6 @@ export class NewPostComponent implements OnInit, AfterViewInit {
     });
   }
 
-  ngOnInit(): void {
-    // console.log(this.data);
-    // console.log('this.UserService.userInfo from new post component',this.UserService.userInfo);
-  }
-
-  ngAfterViewInit() {
-    console.log('Form initialized:', this.composerForm);
-    // this.cdr.detectChanges();
-  }
-
   closeDialog() {
     this.dialogRef.close();
     this.router.navigate(['/my-posts']);
@@ -91,28 +75,4 @@ export class NewPostComponent implements OnInit, AfterViewInit {
       this.header = "Can't wait to hear it";
     }
   }
-
-  // ngOnInit(): void {
-  //   const app = initializeApp(this.firebaseConfig);
-  //   const db = getDatabase();
-  //   const starCountRef = ref(db, 'users');
-  //   onValue(starCountRef, (snapshot) => {
-  //     this.liveFeed = snapshot.val();
-  //     // updateStarCount(postElement, data);
-  //     console.log(this.liveFeed);
-  //   });
-  // }
-
-  // writeUserData(userId: number, name: string, email: string, query: string) {
-  //   const db = getDatabase();
-  //   set(ref(db, 'users/' + userId), {
-  //     username: name,
-  //     email: email,
-  //     query : query
-  //   });
-  // }
-
-  // submit(){
-  //   this.writeUserData(this.testForm.form.value.userId, this.testForm.form.value.name, this.testForm.form.value.mail, this.testForm.form.value.query);
-  // }
 }
