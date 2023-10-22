@@ -2,10 +2,11 @@
 @import "../../scss/animations.scss";
 
 .feed__card {
-    transition: all .2s ease-in-out; 
-    width: 95%;
+    transition: all .2s ease-in-out;
+    width: 100%;
+    color: white;
     padding: 1rem;
-    border-radius: 1rem;
+    border: 1px solid #4a4a4a;
 
     .mini-profile{
         margin-bottom: 1rem;
@@ -18,9 +19,27 @@
             }
         }
 
+        .initials {
+              font-size: 2rem;
+              width: 60px;
+              height: 60px;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+        }
+
         .info{
             line-height: 20px;
             margin-left: 0.5rem;
+
+            .author{
+              font-weight: bold;
+            }
+
+            .parent-tag{
+              font-size: smaller;
+              color: #cdcdcd;
+            }
         }
 
         .like:active{
@@ -30,6 +49,5 @@
 }
 
 .feed__card:hover{
-    box-shadow: $box-shadow !important;
-    // transform: scale(1.007); 
+    background-color: #161d2da8;
 }

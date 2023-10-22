@@ -1,0 +1,37 @@
+<ng-lottie *ngIf="(useLottie == 'true')" [options]="animationOptions"></ng-lottie>
+<div class="center" *ngIf="(useLottie != 'true')">
+    <div *ngIf="animation === 'cube'" class="spinner">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    <div *ngIf="animation === 'boxes'" class="boxes">
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+        <div class="box">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>

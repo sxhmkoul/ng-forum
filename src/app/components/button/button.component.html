@@ -1,4 +1,7 @@
-<div class="m-3 custom-btn icon">
-    <!-- <i class="bi bi-patch-plus-fill"></i> -->
-    <span>{{placeholder | uppercase}}</span>
+<div
+  class="btn__{{ type }} {{ classes }}"
+  [ngStyle]="{ backgroundColor: bg, fontSize: size }"
+>
+  <i *ngIf="!!icon" [class]="icon"></i>
+  <span class="button_top text-center"><ng-content></ng-content></span>
 </div>

@@ -1,0 +1,32 @@
+@import "../../scss/bem-mixins.scss";
+
+@include block('carousel'){
+&:hover {
+    .carousel__nav-arrow {
+      opacity: 1;
+      transition: opacity 0.2s ease;
+    }
+  }
+
+ &:not(:hover) {
+  .carousel__nav-arrow {
+      opacity: 0;
+      transition: opacity 0.2s ease;
+    }
+ }
+
+  @include element('nav-arrow'){
+      font-size: 1.5rem;
+      border-radius: 10rem;
+      width: 2rem;
+      height: 2rem;
+      top: 40%;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      background-color: rgb(42, 42, 42);
+      z-index: 999;
+      opacity: 0;
+
+  }
+}

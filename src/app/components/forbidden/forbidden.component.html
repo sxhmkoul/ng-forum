@@ -1,0 +1,9 @@
+<app-card class="text-white text-center py-3">
+  <div class="container-fluid d-flex flex-column gap-3">
+    <i class="fa-solid fa-lock"></i>
+    <h3>This section unlocks after posting atleast 10 posts.</h3>
+    <h5 class="text-muted">
+      Try again after {{ 10 - FeedService.dummyData.length }} posts
+    </h5>
+  </div>
+</app-card>

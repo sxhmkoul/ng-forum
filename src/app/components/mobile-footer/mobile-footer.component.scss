@@ -1,0 +1,37 @@
+@import "../../scss/animations.scss";
+
+:host {
+  position: sticky;
+  bottom: 0;
+  color: black;
+  z-index: 999;
+}
+
+span#label {
+  display: none;
+}
+
+.active {
+      background-color: #d0e1f9;
+      // width: 10%;
+      border-radius: 30px;
+      text-align: center;
+      display: flex;
+      justify-content: center;
+      padding: 10px;
+      animation: expand .2s ease both;
+
+      i {
+        color: #1058ca !important;
+      }
+
+      span#label {
+        display: block;
+        font-weight: 900;
+        white-space: nowrap;
+      }
+}
+
+.mobile-menu {
+  background-color: #131417;
+}

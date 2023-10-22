@@ -1,0 +1,11 @@
+<div
+  class="carousel border border-dark text-center d-flex flex-row position-relative justify-content-evenly"
+>
+  <div class="position-absolute carousel__nav-arrow start-0" (click)="back()">
+    <i class="fa-solid fa-arrow-left"></i>
+  </div>
+  <div class="position-absolute carousel__nav-arrow end-0" (click)="next()">
+    <i class="fa-solid fa-arrow-right"></i>
+  </div>
+  <ng-content></ng-content>
+</div>

@@ -1,0 +1,45 @@
+@import "../../scss/bem-mixins.scss";
+
+@include block('profile'){
+  gap: .4rem;
+  @include element('cover'){
+    img {
+        height: 10rem;
+        width: 100%;
+        object-fit: cover;
+    }
+  }
+
+  @include element('picture'){
+      position: absolute;
+      top: 15%;
+      left: 1rem;
+
+      img{
+        border-radius: 10rem;
+        width: calc(8rem + 2vw);
+        outline: 4px solid white;
+      }
+  }
+
+  @include element('username'){
+    // line-height: 20px;
+  }
+
+  @include element('info'){
+    @include modifier('location'){
+        display: flex;
+        gap: 0.4rem;
+        align-items: center;
+    }
+  }
+
+  @include element('II'){
+      border: 1px solid gray;
+      border-top: none;
+      border-right: none;
+      border-left: none;
+  }
+
+}
+

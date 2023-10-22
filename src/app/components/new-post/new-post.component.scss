@@ -1,0 +1,46 @@
+@import "../../scss/themes.scss";
+@import "../../scss/animations.scss";
+
+table {
+  border-collapse: separate;
+  border-spacing: 0 1em;
+  padding: 10px;
+}
+
+// table:hover {
+//     transform: scale(1.03);
+// }
+
+textarea,
+input,
+select {
+  border: none;
+  box-shadow: none;
+  outline: 0 none;
+  color: white;
+  transition: all 0.2s ease;
+}
+
+textarea:focus,
+input:focus,
+select:focus {
+  border: none;
+  box-shadow: none;
+  outline: 0 none;
+  color: white;
+  background-color: $dark-field-hover;
+}
+
+textarea:hover,
+input:hover,
+select:hover {
+  border: none;
+  box-shadow: none;
+  outline: 0 none;
+  background-color: $dark-field-hover;
+}
+
+i.success {
+  font-size: 6rem;
+  animation: ease-out 0.4s fadeInDown;
+}

@@ -1,22 +1,45 @@
 .markedDone{
     text-decoration: line-through;
     color: gray;
+    text-decoration-thickness: 3px;
 }
 
 .todo__body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 
     .todo-input{
         height: 36px;
         border-radius: 8px;
         outline: none;
         border: none;
-        border-bottom: 1px solid black;
+        border-bottom: 2px solid #808080;
         border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
         background-color: transparent;
+        color: white;
     }
 
     .todo-add {
         margin-left: 1rem;
+
+        i {
+          font-size: 1.5rem;
+        }
+    }
+
+    .todo-ul {
+      padding: 0;
+      list-style: none;
+
+      .todo-li{
+          background: wheat;
+          border-radius: 0.5rem;
+          color: black;
+          font-weight: 500;
+          padding: 0.5rem;
+          margin: .5rem;
+      }
     }
 }

@@ -1,0 +1,9 @@
+<div class="d-flex justify-content-around">
+  <a
+    class="text-decoration-none p-3 text-white"
+    *ngFor="let tab of tabsData"
+    [routerLink]="tab.route"
+    routerLinkActive="active"
+    >{{ tab.label }}</a
+  >
+</div>

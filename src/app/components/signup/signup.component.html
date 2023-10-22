@@ -1,1 +1,129 @@
-<p>signup works!</p>
+<!-- <app-animated-background-wrapper></app-animated-background-wrapper> -->
+<div>
+  <h2>Signup</h2>
+  <div *ngIf="!showAdditionalInfoPanel">
+    <form
+      class="d-flex flex-column gap-3 p-5"
+      #signInForm="ngForm"
+      (ngSubmit)="toUserInfo(signInForm)"
+    >
+      <div class="input-group mb-2">
+        <input
+          class="form-control w-50"
+          name="first_name"
+          [(ngModel)]="firstName"
+          required
+          type="text"
+          placeholder="First name"
+        />
+        <input
+          class="form-control w-50"
+          name="last_name"
+          [(ngModel)]="lastName"
+          required
+          type="text"
+          placeholder="Last name"
+        />
+      </div>
+      <div class="form-group mb-2">
+        <input
+          name="email"
+          type="email"
+          class="form-control"
+          placeholder="Enter an email"
+          [(ngModel)]="email"
+          required
+        />
+      </div>
+      <div class="form-group mb-2">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Create a username"
+          name="username"
+          [(ngModel)]="username"
+          minlength="4"
+          required
+        />
+      </div>
+      <div class="form-group mb-2">
+        <input
+          name="password"
+          type="password"
+          class="form-control"
+          ngModel
+          required
+          minlength="6"
+          placeholder="Create a strong password"
+        />
+      </div>
+      <div class="w-100 d-flex justify-content-center gap-3">
+        <button
+          type="submit"
+          [disabled]="!this.signInForm.valid"
+          class="btn btn-primary"
+          class="btn btn-primary"
+        >
+          Sign up
+        </button>
+        <button type="button" routerLink="/login" class="btn btn-primary">
+          Log in Instead?
+        </button>
+      </div>
+    </form>
+  </div>
+  <div *ngIf="showAdditionalInfoPanel" class="animate-fadeInRight">
+    <form
+      class="d-flex flex-column gap-3 p-5"
+      #userInfoForm="ngForm"
+      (ngSubmit)="finishSignup(userInfoForm)"
+    >
+      <div class="form-group">
+        <input
+          name="profession"
+          type="text"
+          class="form-control mb-2"
+          ngModel
+          required
+          placeholder="What do you do for a living?"
+        />
+        <input
+          name="country"
+          type="text"
+          class="form-control mb-2"
+          ngModel
+          required
+          placeholder="Where are you from?"
+        />
+      </div>
+      <select
+        name="exp"
+        required
+        ngModel
+        class="form-select mb-2"
+        aria-label="Default select example"
+      >
+        <option selected>How much experience do you have</option>
+        <option value="1-2">1-2 Years</option>
+        <option value="3-5">3-5 Years</option>
+        <option value="6-10">6-10 Years</option>
+        <option value="11-15">11-15 Years</option>
+        <option value="15+">15+ Years</option>
+      </select>
+      <div class="w-100 d-flex justify-content-center gap-3">
+        <button type="button" (click)="backToSignUp()" class="btn btn-primary">Previous</button>
+        <button
+          type="submit"
+          [disabled]="!this.userInfoForm.valid"
+          class="btn btn-primary"
+        >
+          Finish
+        </button>
+        <button type="button" routerLink="/login" class="btn btn-primary">
+          Log in Instead?
+        </button>
+      </div>
+    </form>
+    <!-- </div> -->
+  </div>
+</div>

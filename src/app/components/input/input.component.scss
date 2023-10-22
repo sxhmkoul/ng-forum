@@ -1,3 +1,7 @@
+:host {
+  width: 90%;
+}
+
 input {
     background-color: rgb(212, 208, 208);
     border: none;
@@ -12,7 +16,16 @@ input {
     text-align: left;
     display: block;
     font-size: smaller;
-    // width: 61%;
-    // text-align: center;
+}
+
+.input-span {
+      background: gray;
+      border-radius: 2rem;
+      height: 2.5rem;
+      align-items: center;
+      display: flex;
+      justify-content: center;
+      color: silver;
+      font-weight: 900;
 }
 

@@ -1,0 +1,19 @@
+@import "../../scss/bem-mixins.scss";
+
+
+@include block('about'){
+  display: flex;
+  flex-direction: column;
+  @include element('user'){
+    display: flex;
+    justify-content: center;
+    &>img{
+      border-radius: 10rem;
+      padding: 5px;
+      margin: 5px;
+      outline: 2px solid white;
+      width: 9rem;
+    }
+  }
+}
+

@@ -1,5 +1,6 @@
 export interface feedModal {
-    id: string,
+    userId: string,
+    postId: string,
     category: string,
     dpUrl: string, 
     name: string, 

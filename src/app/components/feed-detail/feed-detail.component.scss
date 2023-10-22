@@ -1,12 +1,36 @@
-@import "../../../styles.scss";
+@import "../../scss/bem-mixins.scss";
 
 @include block('feed-detail'){
     @include element('container'){
         background-color: white;
         height: 98vh;
         padding: 2rem;
+        animation-name: reveal;
+        animation-duration: .5s;
     }
     @include element('core'){
         // padding: 2rem;
+    }
+
+    @include element('animate'){
+
+    }
+}
+
+.loading-donut {
+    width: 128px !important;
+    display: block;
+    height: 80vh;
+    margin: auto;
+}
+
+@keyframes reveal {
+    0% {
+        opacity: 0;
+        transform: translateX(200px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
     }
 }

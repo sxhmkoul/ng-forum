@@ -1,0 +1,10 @@
+.auth-modal {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media only screen and (max-width: 420px) {
+  .auth-modal{
+    width: 85%;
+  }
+}

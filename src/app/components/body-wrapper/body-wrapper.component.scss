@@ -1,9 +1,6 @@
 .content-body {
-    background: #ffbf6b;
-
-    // app-menu-wrapper, app-todo-wrapper, app-feed-wrapper{
-    //     // border: 2px solid gray;
-    // }
+    background: #1E1F26;
+    justify-content: center;
     app-todo-wrapper {
         text-align: center;
     }
@@ -17,19 +14,21 @@
 
 .feed-wrapper {
     overflow: scroll;
-    height: 100vh;
-    
+    height: 100%;
+    max-width: 750px;
+
     // -ms-overflow-style: none;  /* IE and Edge */
     // scrollbar-width: none;  /* Firefox */
 }
 .feed-wrapper::-webkit-scrollbar {
-    width: 2px;
+    // width: 2px;
+    display: none;
   }
   ::-webkit-scrollbar-track {
     box-shadow: inset 0 0 5px transparent;
     border-radius: 1px;
   }
-  
+
   /* Handle */
   ::-webkit-scrollbar-thumb {
     background: gray;
@@ -42,3 +41,12 @@
 // }
 
 /* Hide scrollbar for IE, Edge and Firefox */
+
+@media only screen and (max-width: 850px) {
+  app-menu-wrapper {
+    display: none;
+  }
+  app-todo-wrapper {
+    display: none;
+  }
+}

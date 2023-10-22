@@ -1,5 +1,15 @@
 .menu-wrapper {
     background-color: white;
     border-radius: 1rem;
-    margin: 1rem;
+    margin: 1rem auto;
+    max-width: 300px;
+    width: 60%;
+    min-width: 185px;
+}
+
+.post-cta {
+    margin-right: 1.5rem !important;
+    margin: 1rem auto;
+    width: 60% !important;
+    display: block;
 }
