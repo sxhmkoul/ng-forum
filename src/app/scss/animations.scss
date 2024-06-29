@@ -1,15 +1,65 @@
 @keyframes shake {
-    0% { transform: rotate(0deg); }
-    25% { transform: rotate(20deg); }
-    50% { transform: rotate(0deg); }
-    75% { transform: rotate(-20deg); }
-    100% { transform: rotate(0deg); }
-
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(20deg);
+  }
+  50% {
+    transform: rotate(0deg);
+  }
+  75% {
+    transform: rotate(-20deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
 
 .loading-donut {
-    width: 128px !important;
-    display: block;
-    height: 80vh;
-    margin: auto;
+  width: 128px !important;
+  display: block;
+  height: 80vh;
+  margin: auto;
+}
+
+@keyframes fadeInRight {
+  0% {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fadeInRight {
+  animation: fadeInRight .2s ease both;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes expand {
+  0% {
+    width: 15%;
+  }
+
+  100% {
+    width: 33%;
+  }
+
+}
+
+.animate-expand {
+  animation: expand .2s ease both;
 }

@@ -1,9 +1,12 @@
-<div class="feed-detail__container">
+<div class="feed-detail__container animate" *ngIf="(currentPost || currentPostPreload) && feedFetched">
   <div class="feed-detail__core">
-    <h4>{{currentPost[0].question}}</h4>
-    <p>{{currentPost[0].desc}}</p>
+    <h4>{{currentPost[0] && currentPost[0].question || ''}}</h4>
+    <p>{{currentPost[0] && currentPost[0].desc || ''}}</p>
   </div> 
   <div *ngIf="currentPost[0].category === 'question'; then answers else comments"></div>
-  <ng-template #answers><app-answer-wrapper></app-answer-wrapper></ng-template>
+  <ng-template #answers><app-answer-wrapper [comments]="currentPost[0].comments"></app-answer-wrapper></ng-template>
   <ng-template #comments><app-comment-wrapper [comments]="currentPost[0].comments"></app-comment-wrapper></ng-template>
 </div>
+
+<!-- <ng-lottie *ngIf="!feedFetched" class="loading-donut" [options]="animationOptions"></ng-lottie> -->
+<app-animator class="loading-donut" useLottie=false *ngIf="!feedFetched" [animation]="'boxes'"></app-animator>

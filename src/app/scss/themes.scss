@@ -9,6 +9,16 @@
     }
 }
 
+@include block('modal'){
+    @include element('bg'){
+        background-color: $dark;
+    }
+
+    @include element('field'){
+        background-color: $dark-field;
+    }
+}
+
 
 @include block('feed'){
     @include element('subtitle'){
@@ -21,8 +31,8 @@
 @include block('comment'){
     background-color: rgb(243, 243, 243);
     border-radius: 1rem;
-    margin: 2rem 0 0 0;
-    padding: 1rem 1rem 0 1rem;
+    margin-top: 1rem;
+    padding-top: 1rem;
     
     @include element('core'){
         display: flex;
@@ -32,7 +42,9 @@
     @include element('card'){
         display: flex;
         flex-direction: row;
-        padding: 1rem 0;
+        // padding: 1rem 0;
+        // margin: 2rem 0 0 0;
+        padding: 1rem;
     }
 
     @include element('dp'){
@@ -48,3 +60,15 @@
     }
 }
 
+@include block('w-30'){
+    width: 30% !important;
+}
+@include block('w-40'){
+    width: 40% !important;
+}
+@include block('w-60'){
+    width: 60% !important;
+}
+@include block('w-70'){
+    width: 70% !important;
+}

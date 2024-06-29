@@ -1,0 +1,32 @@
+<app-card [@fade] class="justify-content-center py-3">
+  <div class="about container-fluid p-0 text-white">
+    <div class="about__user">
+      <img
+        src="https://media.licdn.com/dms/image/D4D03AQFo_aPpiJP8vA/profile-displayphoto-shrink_200_200/0/1684174326550?e=1695254400&v=beta&t=X8k6-qqNnIU9qoPPv6YlHb0E8em0Ziz70D4vVGNFlKk"
+        alt="Display Picture"
+      />
+    </div>
+    <div class="text-center">
+      <h2>
+        Hi all, I am {{ getUserInfo?.first_name }} {{ getUserInfo?.last_name }}
+      </h2>
+      <h3>An {{ getUserInfo?.profession }} at {{ "Pristyn Care" }}</h3>
+      <h4>I love talkin about</h4>
+      <span
+        class="text-muted"
+        *ngFor="
+          let i of [
+            'javascript',
+            'html5',
+            'css3',
+            'angular',
+            'react',
+            'frontend'
+          ]
+        "
+        >#{{ i }},
+      </span>
+      <app-social></app-social>
+    </div>
+  </div>
+</app-card>

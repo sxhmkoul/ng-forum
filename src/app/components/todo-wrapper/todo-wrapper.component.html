@@ -1,1 +1,9 @@
-<app-button type="wide" placeholder="Add a post"></app-button>
+<div class="right-panel d-flex flex-row justify-content-evenly my-3">
+  <app-search-post style="width: 90%"></app-search-post>
+</div>
+<app-card *ngIf="showStats">
+  <app-stats></app-stats>
+</app-card>
+<div class="right-panel todo d-flex flex-row justify-content-evenly my-3">
+  <app-todo-list class="w-100"></app-todo-list>
+</div>

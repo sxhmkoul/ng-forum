@@ -1,4 +1,58 @@
-<div class="d-flex bg-white text-center justify-content-center nav-switch shadow-sm">
+<!-- Default Theme -->
+<!-- <div #navSwitchWrapper class="d-flex bg-white text-center justify-content-center nav-switch shadow-sm">
     <div class="nav-switch--feed active" name="feed" #feed (click)="navSwitchFlipped('feed', $event.target)">Questions</div>
     <div class="nav-switch--blogs" name="blog" #blog (click)="navSwitchFlipped('blog', $event.target)">Posts</div>
+    <div class="nav-switch--stories" name="story" #story (click)="navSwitchFlipped('story', $event.target)">Stories</div>
+</div> -->
+
+<!-- Mono Theme -->
+<div class="parent-wrapper position-relative">
+  <div class="wrapper">
+    <div class="option">
+      <input
+        #feed
+        (click)="navSwitchFlipped('feed', $event.target)"
+        data-fn="feed"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option1"
+        checked=""
+      />
+      <div class="btn">
+        <div class="span d-flex">
+          <div>Questions</div>
+        </div>
+      </div>
+    </div>
+    <div class="option">
+      <input
+        #blog
+        (click)="navSwitchFlipped('blog', $event.target)"
+        data-fn="blog"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option2"
+      />
+      <div class="btn">
+        <span class="span">Posts</span>
+      </div>
+    </div>
+    <div class="option">
+      <input
+        #story
+        (click)="navSwitchFlipped('story', $event.target)"
+        data-fn="story"
+        class="input"
+        type="radio"
+        name="btn"
+        value="option3"
+      />
+      <div class="btn">
+        <span class="span">Stories</span>
+      </div>
+    </div>
+  </div>
+  <div class="backdrop position-absolute top-0 w-100 h-100 z-index-n1"></div>
 </div>

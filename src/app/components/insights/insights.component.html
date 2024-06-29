@@ -1,0 +1,68 @@
+<div *ngIf="FeedService.dummyData.length >= 10">
+  <div class="w-100 d-flex flex-column text-start m-0 p-3 text-white">
+    <h3>{{ "Feed posted" }}</h3>
+    <!-- <h5>Your total posts: {{ 5 }}</h5> -->
+
+    <!-- <h6>You seem like a</h6>
+  <h5>{{ "Curious Armadillo" }}</h5> -->
+  </div>
+  <app-card [inheritClass]="'p-3'">
+    <div class="d-flex flex-column gap-5 text-white">
+      <app-carousel
+        [conditions]="conditions"
+        (conditionSwitch)="setCondition($event)"
+      >
+        <div
+          [ngSwitch]="currentCondition"
+          class="w-100 d-flex justify-content-evenly"
+        >
+          <div
+            *ngSwitchCase="'piechart'"
+            class="w-100 d-flex align-items-center justify-content-evenly flex-wrap py-3"
+          >
+            <app-piechart></app-piechart>
+            <div class="support-text">
+              <span
+                >That's more than {{ 20 }}% of the total feed! <br />That means
+                you're ahead than {{ 93 }}% of users. Good job!</span
+              >
+            </div>
+          </div>
+          <div *ngSwitchCase="'histograph'">
+            <app-histograph></app-histograph>
+            <div class="support-text">
+              <span
+                >You've been posting from January 2022, that's more than a year!
+                Also, you went nuts and posted 37 posts in March 2023.
+                Awesome!</span
+              >
+            </div>
+          </div>
+          <div *ngSwitchCase="'bargraph-hor'">
+            <app-bargraph-hor></app-bargraph-hor>
+            <div class="support-text">
+              <span
+                >You've been posting from January 2022, that's more than a year!
+                Also, you went nuts and posted 37 posts in March 2023.
+                Awesome!</span
+              >
+            </div>
+          </div>
+          <div *ngSwitchCase="'summary'">
+            <div class="stats-summary">
+              <i class="fa-solid fa-hands-clapping"></i>
+              <h2>
+                With more than {{ 100 }} thanks, You're been a big help to the
+                community, {{ "Bedanta" }}. +1 from us, cause you're awesome!
+              </h2>
+            </div>
+          </div>
+          <div *ngSwitchDefault>
+            <app-forbidden></app-forbidden>
+          </div>
+        </div>
+      </app-carousel>
+    </div>
+  </app-card>
+</div>
+<app-forbidden></app-forbidden>

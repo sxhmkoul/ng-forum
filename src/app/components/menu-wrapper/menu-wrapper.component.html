@@ -1,3 +1,10 @@
-<div class="menu-wrapper">
-    <app-menu-vertical></app-menu-vertical>
+<div style="margin-right: 1.5rem" class="menu-wrapper">
+  <app-menu-vertical [mapping]="menuMapping"></app-menu-vertical>
 </div>
+<app-button
+  (click)="openDialog()"
+  type="3d"
+  class="w-50 post-cta"
+  placeholder=""
+  >New Post</app-button
+>

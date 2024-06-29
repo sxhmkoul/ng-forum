@@ -2,9 +2,23 @@
 /*color variables*/
 $black: #000000;
 $white: #ffffff;
+$dark: #242526;
+$dark-field: #3A3B3C;
+$dark-field-hover: #4E4F50;
 
 /*shadow variables*/
-$box-shadow:                  0 .5rem 1rem rgba($black, .15);
+$box-shadow:  
+0.6px 1.3px 2.1px rgba(0, 0, 0, 0.017),
+1.2px 2.9px 4.5px rgba(0, 0, 0, 0.025),
+2.1px 4.9px 7.6px rgba(0, 0, 0, 0.031),
+3.1px 7.4px 11.5px rgba(0, 0, 0, 0.035),
+4.5px 10.6px 16.5px rgba(0, 0, 0, 0.04),
+6.4px 15.1px 23.4px rgba(0, 0, 0, 0.045),
+9px 21.4px 33.2px rgba(0, 0, 0, 0.049),
+13.1px 31px 48.2px rgba(0, 0, 0, 0.055),
+20.3px 47.8px 74.3px rgba(0, 0, 0, 0.063),
+36px 85px 132px rgba(0, 0, 0, 0.08)
+;
 $box-shadow-sm:               0 .125rem .25rem rgba($black, .075);
 $box-shadow-lg:               0 1rem 3rem rgba($black, .175);
 $box-shadow-inset:            inset 0 1px 2px rgba($black, .075);

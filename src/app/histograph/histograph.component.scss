@@ -1,0 +1,14 @@
+.tooltips {
+  position: absolute;
+  text-align: center;
+  padding: 8px;
+  font: 12px sans-serif;
+  background: #f9f9f9;
+  border: solid 1px #cfcfcf;
+  border-radius: 4px;
+  pointer-events: none;
+  /* Prevents the tooltip from interfering with mouse events */
+  opacity: 0.9;
+  color: white;
+  top: 0 !important;
+}

@@ -1,1 +1,3 @@
-<app-feed [filteredFeed]="myPosts"></app-feed>
+<app-feed *ngIf="isLoaded" [filteredFeed]="filtered"></app-feed>
+<app-animator *ngIf="!isLoaded" class="loading-donut" useLottie=false [animation]="'boxes'"></app-animator>
+

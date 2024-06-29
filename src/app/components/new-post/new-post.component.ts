@@ -1,65 +1,78 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { NgFor } from '@angular/common';
+import {
+  AfterViewChecked,
+  AfterViewInit,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  Input,
+  OnInit,
+  ViewChild,
+} from '@angular/core';
 import { FormsModule, NgForm } from '@angular/forms';
-
-import { initializeApp } from "firebase/app";
-import { getDatabase, ref, set, onValue, DatabaseReference } from "firebase/database";
-import { getAnalytics } from "firebase/analytics";
-import { AppConfigService } from '../../services/app-config.service';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Router } from '@angular/router';
+import { FeedService } from 'src/app/services/feed.service';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'new-post',
   templateUrl: './new-post.component.html',
-  styleUrls: ['./new-post.component.scss']
+  styleUrls: ['./new-post.component.scss'],
 })
-export class NewPostComponent implements OnInit{
+export class NewPostComponent {
+  @ViewChild('composerForm') composerForm!: NgForm;
+  heading = 'Ask a question';
+  desc = '';
+  category = 'question';
+  header = 'Ask it out';
+  postComplete = false;
 
-  title = 'forum';
-  liveFeed = {};
-  @ViewChild('testForm') testForm !: NgForm
-  firebaseConfig: {} = {
-      apiKey: this.AppConfig.api_keys.firebase,
-      authDomain: "ng-forum-2f491.firebaseapp.com",
-      databaseURL: this.AppConfig.api_keys.firebase.databaseUrl,
-      projectId: "ng-forum-2f491",
-      storageBucket: "ng-forum-2f491.appspot.com",
-      messagingSenderId: this.AppConfig.api_keys.firebase.messagingSenderId,
-      appId: this.AppConfig.api_keys.firebase.appId,
-      measurementId: this.AppConfig.api_keys.firebase.measurementId
-};
+  constructor(
+    private UserService: UserService,
+    private FeedService: FeedService,
+    private router: Router,
+    public dialogRef: MatDialogRef<NewPostComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any
+  ) {}
 
-  constructor (private AppConfig: AppConfigService){}
-
-  ngOnInit(): void {
-    const app = initializeApp(this.firebaseConfig);
-    const db = getDatabase();
-    const starCountRef = ref(db, 'users');
-    onValue(starCountRef, (snapshot) => {
-      this.liveFeed = snapshot.val();
-      // updateStarCount(postElement, data);
-      console.log(this.liveFeed);
+  submitPost(form: NgForm) {
+    const userInfo = this.UserService.userInfoSubject.getValue();
+    let config = {
+      category: form.value.category,
+      comments: [],
+      desc: form.value.desc,
+      dpUrl: '',
+      postId: String(Math.floor(Math.random() * 10000000)),
+      userId: userInfo?.userId,
+      liked: false,
+      name: userInfo?.first_name,
+      question: form.value.heading,
+      timeStamp: new Date().getTime(),
+      work: userInfo?.profession,
+    };
+    this.FeedService.createFeed(config).subscribe((res) => {
+      console.log(res);
+      this.postComplete = true;
     });
   }
 
-  writeUserData(userId: number, name: string, email: string, query: string) {
-    const db = getDatabase();
-    set(ref(db, 'users/' + userId), {
-      username: name,
-      email: email,
-      query : query
-    });
+  closeDialog() {
+    this.dialogRef.close();
+    this.router.navigate(['/my-posts']);
   }
 
-
-  submit(){
-    this.writeUserData(this.testForm.form.value.userId, this.testForm.form.value.name, this.testForm.form.value.mail, this.testForm.form.value.query);
+  categorySwitch() {
+    console.log(this.composerForm.value.category);
+    if (this.composerForm.value.category === 'question') {
+      this.heading = 'Ask a question';
+      this.header = 'Ask it out';
+    } else if (this.composerForm.value.category === 'blog') {
+      this.heading = 'Write a heading';
+      this.header = 'Thanks for sharing';
+    } else {
+      this.heading = 'Write a title';
+      this.header = "Can't wait to hear it";
+    }
   }
-
-
-
-
-
-
-
-
-
 }
