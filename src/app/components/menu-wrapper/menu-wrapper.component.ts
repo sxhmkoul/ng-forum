@@ -5,7 +5,6 @@ import {
   MatDialog,
   MatDialogModule,
 } from '@angular/material/dialog';
-import { MatButtonModule } from '@angular/material/button';
 import { NewPostComponent } from '../new-post/new-post.component';
 import { StateService } from 'src/app/services/state.service';
 
